@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Threading;
 using DevExpress.Xpf.Utils.Themes;
 using log4net;
+using SGPET.View;
 
 namespace SGPET
 {
