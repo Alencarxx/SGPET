@@ -8,12 +8,18 @@
         mc:Ignorable="d"
         Title="SGPET" Height="800" Width="880">
     <Grid Name="WindowContent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="329*"/>
+            <ColumnDefinition Width="544*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
-            <RowDefinition />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <view:ToolBarView Grid.Row="0" x:Name="ToolBar" />
+        <view:ToolBarView Grid.Row="0" x:Name="ToolBar" Grid.ColumnSpan="2" Margin="0,0,-0.4,745.4" Grid.RowSpan="2" />
+
+        <view:HomePage Grid.Row="1" x:Name="HomePage" Grid.ColumnSpan="2" Margin="0,0.2,-0.4,0.4" />
 
     </Grid>
 </Window>

@@ -43,16 +43,14 @@ namespace SGPET.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ToolBarViewModel>();
         }
 
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
-        }
-        
+        public static MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+
+        public static ToolBarViewModel ToolBar => ServiceLocator.Current.GetInstance<ToolBarViewModel>();
+
+      
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
