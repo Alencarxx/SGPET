@@ -4,11 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:local="clr-namespace:SGPET" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    d1p1:Ignorable="d" 
-    xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
-  <Application.Resources>
-    <ResourceDictionary>
-      <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:SGPET.ViewModel" />
-    </ResourceDictionary>
-  </Application.Resources>
+    d1P1:Ignorable="d" 
+    xmlns:modelView="clr-namespace:SGPET.ViewModel"
+    xmlns:d1P1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Icons.xaml" />
+                <ResourceDictionary Source="Simple Style.xaml">
+                    <modelView:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:SGPET.ViewModel" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <modelView:ViewModelLocator x:Key="Locator" />
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

@@ -1,0 +1,358 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <!-- Simple Button - This control sets brushes on each state. Note that these brushes must be listed above since they are static resources -->
+    <Style x:Key="SimpleButton" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Background" Value="{x:Null}" />
+    </Style>
+
+    <Style x:Key="ClearButton" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- We use Grid as a root because it is easy to add more elements to customize the button -->
+                    <Grid x:Name="Grid">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}" />
+
+                        <!-- Content Presenter is where the text content etc is placed by the control -->
+                        <!-- The bindings are useful so that the control can be parameterized without editing the template -->
+                        <ContentPresenter x:Name="Content"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RecognizesAccessKey="True" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NeoMenuMediaItem" TargetType="{x:Type Menu}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Menu}">
+                    <!--Here is where you change the border thickness to zero on the menu-->
+                    <Border BorderThickness="1" BorderBrush="Gray">
+                        <StackPanel ClipToBounds="True" Orientation="Vertical"
+                                    Background="{TemplateBinding Background}"
+                                    IsItemsHost="True" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NeoExpressMenuItem" TargetType="{x:Type MenuItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MenuItem}">
+                    <Border x:Name="Border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+
+                            <!-- The Grid is used to hold together columns for an Icon, Content, Glyph checkmark and Arrow to show the next level
+							 Size sharing is used in Grid so that the Icon, Content, Arrow for each MenuItem align together -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGTColumnGroup" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <!-- Content for the menu text etc -->
+                            <ContentPresenter Grid.Column="0" Margin="10,0,10,0" x:Name="HeaderHost"
+                                              RecognizesAccessKey="True" ContentSource="Header"
+                                              VerticalAlignment="Center" />
+
+                            <ContentPresenter Grid.Column="1" Margin="0,0,10,0" x:Name="Keys"
+                                              VerticalAlignment="Center" HorizontalAlignment="Right"
+                                              ContentSource="InputGestureText" />
+
+
+                            <!-- Arrow drawn path which points to the next level of the menu -->
+                            <Grid Grid.Column="3" Margin="4,0,6,0" x:Name="ArrowPanel" VerticalAlignment="Center">
+                                <Path x:Name="ArrowPanelPath" VerticalAlignment="Center"
+                                      Fill="{TemplateBinding Foreground}" Data="M0,0 L0,8 L4,4 z" />
+                            </Grid>
+
+                            <!-- The Popup is the body of the menu which expands down or across depending on the level of the item -->
+                            <Popup
+                                Grid.Column="0"
+                                IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                Placement="Right" x:Name="SubMenuPopup" Focusable="false" AllowsTransparency="False"
+                                PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}"
+                                VerticalOffset="0">
+                                <Grid x:Name="SubMenu">
+                                    <Border x:Name="SubMenuBorder" Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" />
+
+                                    <!-- StackPanel holds children of the menu. This is set bu IsItemsHost=True -->
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                </Grid>
+                            </Popup>
+
+                        </Grid>
+                    </Border>
+
+                    <!-- These triggers re-configure the four arrangements of MenuItem to show different levels of menu via Role -->
+                    <ControlTemplate.Triggers>
+                        <!-- Using the system colors for the Menu Highlight and IsEnabled-->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="TopLevelHeader" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource MenuItemSolidBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="TopLevelItem" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource MenuItemSolidBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="SubmenuHeader" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="SubmenuItem" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+
+                        <!-- Role = TopLevelHeader : this is the root menu item in a menu; the Popup expands down -->
+                        <Trigger Property="Role" Value="TopLevelHeader">
+                            <Setter Property="Margin" Value="0,1,0,1" />
+                            <Setter Property="Padding" Value="6,3,6,3" />
+                            <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+                            <Setter Property="Placement" Value="Bottom" TargetName="SubMenuPopup" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel" />
+                        </Trigger>
+
+                        <!-- Role = TopLevelItem :  this is a child menu item from the top level without any child items-->
+                        <Trigger Property="Role" Value="TopLevelItem">
+                            <Setter Property="Margin" Value="0,1,0,1" />
+                            <Setter Property="Padding" Value="6,3,6,3" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel" />
+                        </Trigger>
+
+                        <!-- Role = SubMenuHeader : this is a child menu item which does not have children -->
+                        <Trigger Property="Role" Value="SubmenuHeader">
+                            <Setter Property="DockPanel.Dock" Value="Top" />
+                            <Setter Property="Padding" Value="0,2,0,2" />
+                            <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+                        </Trigger>
+
+                        <!-- Role = SubMenuItem : this is a child menu item which has children-->
+                        <Trigger Property="Role" Value="SubmenuItem">
+                            <Setter Property="DockPanel.Dock" Value="Top" />
+                            <Setter Property="Padding" Value="0,2,0,2" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SimpleBorder" TargetType="{x:Type Border}">
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Background" Value="{x:Null}" />
+    </Style>
+
+    <Style x:Key="SimpleLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+
+    <Style x:Key="NeoExpressMenuItemWithoutKeys" TargetType="{x:Type MenuItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MenuItem}">
+                    <Border x:Name="Border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+
+                            <!-- The Grid is used to hold together columns for an Icon, Content, Glyph checkmark and Arrow to show the next level
+							 Size sharing is used in Grid so that the Icon, Content, Arrow for each MenuItem align together -->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGTColumnGroup" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Content for the menu text etc -->
+                            <ContentPresenter Grid.Column="0" Margin="10,0,10,0" x:Name="HeaderHost"
+                                              RecognizesAccessKey="True" ContentSource="Header"
+                                              VerticalAlignment="Center" />
+
+                            <!-- Arrow drawn path which points to the next level of the menu -->
+                            <Grid Grid.Column="2" Margin="4,0,6,0" x:Name="ArrowPanel" VerticalAlignment="Center">
+                                <Path x:Name="ArrowPanelPath" VerticalAlignment="Center"
+                                      Fill="{TemplateBinding Foreground}" Data="M0,0 L0,8 L4,4 z" />
+                            </Grid>
+
+                            <!-- The Popup is the body of the menu which expands down or across depending on the level of the item -->
+                            <Popup
+                                Grid.Column="0"
+                                IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                Placement="Right" x:Name="SubMenuPopup" Focusable="false" AllowsTransparency="False"
+                                PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}"
+                                VerticalOffset="0">
+                                <Grid x:Name="SubMenu">
+                                    <Border x:Name="SubMenuBorder" Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" />
+
+                                    <!-- StackPanel holds children of the menu. This is set bu IsItemsHost=True -->
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                </Grid>
+                            </Popup>
+
+                        </Grid>
+                    </Border>
+
+                    <!-- These triggers re-configure the four arrangements of MenuItem to show different levels of menu via Role -->
+                    <ControlTemplate.Triggers>
+                        <!-- Using the system colors for the Menu Highlight and IsEnabled-->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="TopLevelHeader" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource MenuItemSolidBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="TopLevelItem" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource MenuItemSolidBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="SubmenuHeader" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsHighlighted}"
+                                           Value="true" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Role}"
+                                           Value="SubmenuItem" />
+                            </MultiDataTrigger.Conditions>
+
+                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                                    TargetName="Border" />
+                        </MultiDataTrigger>
+
+
+                        <!-- Role = TopLevelHeader : this is the root menu item in a menu; the Popup expands down -->
+                        <Trigger Property="Role" Value="TopLevelHeader">
+                            <Setter Property="Margin" Value="0,1,0,1" />
+                            <Setter Property="Padding" Value="6,3,6,3" />
+                            <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+                            <Setter Property="Placement" Value="Bottom" TargetName="SubMenuPopup" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel" />
+                        </Trigger>
+
+                        <!-- Role = TopLevelItem :  this is a child menu item from the top level without any child items-->
+                        <Trigger Property="Role" Value="TopLevelItem">
+                            <Setter Property="Margin" Value="0,1,0,1" />
+                            <Setter Property="Padding" Value="6,3,6,3" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel" />
+                        </Trigger>
+
+                        <!-- Role = SubMenuHeader : this is a child menu item which does not have children -->
+                        <Trigger Property="Role" Value="SubmenuHeader">
+                            <Setter Property="DockPanel.Dock" Value="Top" />
+                            <Setter Property="Padding" Value="0,2,0,2" />
+                            <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+                        </Trigger>
+
+                        <!-- Role = SubMenuItem : this is a child menu item which has children-->
+                        <Trigger Property="Role" Value="SubmenuItem">
+                            <Setter Property="DockPanel.Dock" Value="Top" />
+                            <Setter Property="Padding" Value="0,2,0,2" />
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NeoExpressSeparator" TargetType="{x:Type Separator}">
+        <Setter Property="Background" Value="#FF1D1D1D" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Separator}">
+                    <Border Background="White" Height="1" SnapsToDevicePixels="true" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

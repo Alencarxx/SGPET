@@ -1,0 +1,315 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SGPET.View.Helper">
+
+    <Style x:Key="PathStyle" TargetType="Path">
+        <Setter Property="Width" Value="10" />
+        <Setter Property="Height" Value="10" />
+        <Setter Property="Stretch" Value="Uniform" />
+    </Style>
+
+    <!-- Player Related Icons BEGINS -->
+    <Path x:Key="FastBackwardIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M9 2.5v5l5-5v11l-5-5v5l-5.5-5.5z" />
+    <Path x:Key="StopIcon" Fill="Red" Data="M2 2h12v12h-12z" Style="{StaticResource PathStyle}" />
+    <Path x:Key="RewindIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M4 14v-12h2v5.5l5-5v11l-5-5v5.5z" />
+    <Path x:Key="FastForwardIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M8 13.5v-5l-5 5v-11l5 5v-5l5.5 5.5z" />
+    <Path x:Key="PauseIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M2 2h5v12h-5zM9 2h5v12h-5z" />
+    <Path x:Key="PGMPauseIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M2 2h5v12h-5zM9 2h5v12h-5z" />
+    <Path x:Key="PlayIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M3 2l10 6-10 6z" />
+    <Path x:Key="PGMPlayIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M3 2l10 6-10 6z" />
+    <Path x:Key="PauseIcon2" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM8 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zM5 5h2v6h-2zM9 5h2v6h-2z" />
+    <Path x:Key="FooterPauseIcon2" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM8 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zM5 5h2v6h-2zM9 5h2v6h-2z" />
+    <Path x:Key="PopupPauseIcon2" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM8 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zM5 5h2v6h-2zM9 5h2v6h-2z" />
+    <Path x:Key="PreviousIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M2 14v-12h2v5.5l5-5v5l5-5v11l-5-5v5l-5-5v5.5z" />
+    <Path x:Key="NextIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}" Data="M14 2v12h-2v-5.5l-5 5v-5l-5 5v-11l5 5v-5l5 5v-5.5z" />
+    <Path x:Key="LimparKeypoint"
+          Data="M417.4,224H94.6C77.7,224,64,238.3,64,256c0,17.7,13.7,32,30.6,32h322.8c16.9,0,30.6-14.3,30.6-32  C448,238.3,434.3,224,417.4,224z"
+          Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Style="{StaticResource PathStyle}" />
+
+    <Grid x:Key="FrameBackwardIcon" Width="10" Margin="0,0.5,0,0">
+        <Rectangle RadiusX="889.5" RadiusY="0" Height="10"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Width="1"
+                   Margin="0,-8,-8,-7" />
+        <Polygon Points="697,979.3 697,20.7 122,499.9  "
+                 Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+                 Height="10" Margin="-2,-5,0,-4" />
+    </Grid>
+
+    <Grid x:Key="FrameForwardIcon" Width="10">
+        <Rectangle RadiusX="122" RadiusY="21" Height="10"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Width="1"
+                   Margin="0,-8, 8,-7" />
+        <Polygon Points="304,979.3 304,20.7 879,499.9  "
+                 Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+                 Height="10" />
+    </Grid>
+
+    <Grid x:Key="FrameBackwardIconPvw" Width="10" Margin="0,0.5,0,0">
+        <Rectangle RadiusX="889.5" RadiusY="0" Height="10"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Width="1"
+                   Margin="0,-8,-8,-7" />
+        <Polygon Points="697,979.3 697,20.7 122,499.9  "
+                 Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+                 Height="10" Margin="-2,-5,0,-4" />
+    </Grid>
+
+    <Grid x:Key="FrameForwardIconPvw">
+        <Rectangle RadiusX="122" RadiusY="0" Height="10"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Width="1"
+                   Margin="0,-8, 8,-7" />
+        <Polygon Points="304,979.3 304,20.7 879,499.9  "
+                 Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+                 Height="10" />
+    </Grid>
+
+    <Grid x:Key="SlowBackwardIcon" Width="10" Height="10" Margin="0,0.5,0,0">
+        <Rectangle RadiusX="889.5" RadiusY="0"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Width="1" Height="9"
+                   Margin="5,-9,-8,-9" />
+        <Rectangle RadiusX="900" RadiusY="142" Width="1" Height="10"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" />
+        <Polygon Points="463,139.8 30.7,500 463,860.2 463,556.2 828,860.2 828,139.8 463,443.7"
+                 Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" />
+    </Grid>
+
+    <Grid x:Key="SlowForwardIcon" Width="10" Height="10">
+        <Rectangle RadiusX="889.5" RadiusY="0"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Width="1" Height="9"
+                   Margin="-21,-9,-8,-9" />
+        <Rectangle RadiusX="31" RadiusY="142" Width="1" Height="10"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" />
+        <Polygon Points="533,139.8 965.3,500 533,860.2 533,556.2 168,860.2 168,139.8 533,443.7  "
+                 Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" />
+    </Grid>
+
+    <Grid x:Key="CleanIcon">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+              Margin="-10,-3,-15,0"
+              Data="M957.2,292.4L689.5,24.7c-14.4-14.4-37.8-14.4-52.2,0L221.6,440.5l319.9,319.8l415.8-415.8    C971.6,330.1,971.6,306.8,957.2,292.4L957.2,292.4z M957.2,292.4" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="6"
+              Margin="0,5,4,0"
+              Data="M155.5,506.5L42.9,619.2c-14.4,14.4-14.4,37.8,0,52.1L310.6,939c14.4,14.4,37.7,14.4,52.2,0l112.6-112.7L155.5,506.5z     M155.5,506.5" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+              Margin="-5,10,-12,0" Data="M419.2,987.8h518.4v-75.9H507.6L419.2,987.8z M419.2,987.8" />
+    </Grid>
+
+    <Grid x:Key="PrepareIcon" Width="Auto">
+        <Rectangle RadiusX="889.5" RadiusY="0" Fill="LimeGreen" Width="1" Height="10" Margin="0,-8,-5,-9" />
+        <Rectangle RadiusX="709.7" RadiusY="0" Fill="LimeGreen" Width="1" Height="10" Margin="2,2,0,2" />
+        <Polygon Points="23.4,990.3 611.7,499.9 23.4,9.7" Fill="LimeGreen" Stretch="Uniform" Width="15" Height="10"
+                 Margin="-4,2,0,2" />
+    </Grid>
+    <!-- Player Related Icons ENDS -->
+
+    <!-- Media Tamplate Icons BEGINS -->
+    <Grid x:Key="MediaTamplateSmall" Height="1,5">
+        <Rectangle Width="11" Height="1" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" />
+    </Grid>
+
+    <Grid x:Key="MediaTamplateMedium" Height="3">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Width="11" Height="1" RadiusY="2"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" />
+        <Rectangle Grid.Row="1" Width="11" Height="1"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" />
+    </Grid>
+
+    <Grid x:Key="MediaTamplateLarge" Height="6">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Width="11" Height="1" RadiusY="2"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" />
+        <Rectangle Grid.Row="1" Width="11" Height="1" RadiusY="4"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" />
+        <Rectangle Grid.Row="2" Width="11" Height="1"
+                   Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" />
+    </Grid>
+    <!-- Media Tamplate Icons END -->
+
+    <!-- Playlist popup menu Icons BEGINS -->
+    <Path x:Key="LoopIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M1.0000008,5.9999999 C1.0000007,8.2090558 2.791002,9.9999207 5.0000038,9.9999207 5.8149419,9.9999207 6.5731067,9.7561959 7.2053051,9.3376683 L7.2834491,9.2834481 5,6.9999989 10,6.9999989 10,11.999999 8.0001802,10.000179 7.918436,10.060469 C7.0969662,10.651709 6.0887546,11.000001 5.0000038,11.000001 2.2390017,11.000001 -2.9806088E-08,8.7614449 0,6.0001 z M0,0 L1.9997931,1.9997934 2.0814781,1.939532 C2.902729,1.3482915 3.9104328,1 4.9999962,1 7.7609982,1 10,3.2385551 10,5.9998997 L8.999999,5.9999999 C8.999999,3.7909442 7.2089977,2.00008 4.9999962,2.00008 4.1537142,2.00008 3.3686571,2.2629133 2.7223119,2.7113947 L2.715928,2.7159282 5,5.0000004 0,5.0000004 z" />
+    <Path x:Key="PopupLoopIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M1.0000008,5.9999999 C1.0000007,8.2090558 2.791002,9.9999207 5.0000038,9.9999207 5.8149419,9.9999207 6.5731067,9.7561959 7.2053051,9.3376683 L7.2834491,9.2834481 5,6.9999989 10,6.9999989 10,11.999999 8.0001802,10.000179 7.918436,10.060469 C7.0969662,10.651709 6.0887546,11.000001 5.0000038,11.000001 2.2390017,11.000001 -2.9806088E-08,8.7614449 0,6.0001 z M0,0 L1.9997931,1.9997934 2.0814781,1.939532 C2.902729,1.3482915 3.9104328,1 4.9999962,1 7.7609982,1 10,3.2385551 10,5.9998997 L8.999999,5.9999999 C8.999999,3.7909442 7.2089977,2.00008 4.9999962,2.00008 4.1537142,2.00008 3.3686571,2.2629133 2.7223119,2.7113947 L2.715928,2.7159282 5,5.0000004 0,5.0000004 z" />
+    <Path x:Key="CopyIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M68,109.14v631.72c0,3.943,3.128,7.14,7.004,7.14h495.958c3.91,0,7.038-3.162,7.038-7.14V109.14    c0-3.944-3.128-7.14-7.004-7.14H75.004C71.128,102,68,105.162,68,109.14z M136,204h374v34H136V204z M136,306h374v34H136V306z     M136,408h374v34H136V408z M136,510h374v34H136V510z M136,612h238v34H136V612z" />
+    <Path x:Key="CutIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M333.381,288.65c-10.341-18.002-26.8-31.189-45.187-36.209c-12.502-3.417-25.202-2.774-36.251,1.724l-32.414-56.704   c28.806-52.881,71.47-131.12,76.855-140.53c13.169-23.019-8.448-48.576-9.373-49.645L280.731,0l-87.042,152.248L106.64,0.012   l-6.278,7.287c-0.934,1.068-22.548,26.625-9.382,49.647c5.38,9.4,48.053,87.64,76.861,140.527l-32.417,56.703   c-11.058-4.497-23.749-5.14-36.26-1.724c-18.381,5.014-34.846,18.207-45.177,36.215c-19.413,33.934-11.586,75.061,17.438,91.664   c8.104,4.665,17.087,7.031,26.697,7.031c5.278,0,10.761-0.414,15.976-2.191c31.114-10.587,47.05-36.023,54.683-62.132   c0.327-1.123,15.678-63.327,24.25-76.88c0,0,0.265-0.486,0.658-1.213c0.39,0.727,0.661,1.213,0.661,1.213   c8.571,13.553,23.92,75.757,24.25,76.88c7.62,26.108,23.569,51.551,54.68,62.132c5.212,1.777,10.694,2.191,15.973,2.191   c9.614,0,18.591-2.366,26.704-7.031C344.964,363.71,352.783,322.59,333.381,288.65z M134.157,334.575   c-6.446,11.247-16.792,19.737-27.634,22.686c-2.853,0.769-5.663,1.159-8.355,1.159c-4.501,0-8.653-1.093-12.328-3.2   c-15.183-8.671-18.209-32.102-6.722-52.194c6.542-11.396,16.621-19.653,27.616-22.649c7.506-2.03,14.775-1.382,20.726,2.018   C142.63,291.094,145.635,314.507,134.157,334.575z M301.52,355.22c-3.682,2.113-7.824,3.206-12.328,3.206   c-2.69,0-5.507-0.396-8.353-1.165c-10.845-2.942-21.191-11.433-27.634-22.68c-11.481-20.074-8.474-43.48,6.688-52.164   c5.957-3.404,13.223-4.059,20.729-2.018c11.001,2.984,21.077,11.241,27.616,22.645C319.726,323.13,316.706,346.549,301.52,355.22z" />
+    <Path x:Key="PasteIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M13 4h-3v-4h-10v14h6v2h10v-9l-3-3zM3 1h4v1h-4v-1zM15 15h-8v-10h5v3h3v7zM13 7v-2l2 2h-2z" />
+    <Path x:Key="ClockIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306s306-137.012,306-306S475.008,0,306,0z M306,573.157     C158.451,573.157,38.843,453.55,38.843,306C38.843,158.451,158.451,38.843,306,38.843c147.55,0,267.157,119.608,267.157,267.157     C573.157,453.55,453.55,573.157,306,573.157z M325.125,115.955h-37.657l0.593,209.782l132.077,112.952l23.313-32.876     l-118.326-99.221V115.955z" />
+    <Path x:Key="PopupClockIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M306,0C136.992,0,0,136.992,0,306s136.992,306,306,306s306-137.012,306-306S475.008,0,306,0z M306,573.157     C158.451,573.157,38.843,453.55,38.843,306C38.843,158.451,158.451,38.843,306,38.843c147.55,0,267.157,119.608,267.157,267.157     C573.157,453.55,453.55,573.157,306,573.157z M325.125,115.955h-37.657l0.593,209.782l132.077,112.952l23.313-32.876     l-118.326-99.221V115.955z" />
+    <Path x:Key="ShowFolderIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Style="{StaticResource PathStyle}"
+          Data="M95.351,35h-90.7c-4.604,0-4.834,2.241-4.584,4.979L4.194,85.02C4.444,87.759,5.093,90,9.69,90    h80.621c4.688,0,5.244-2.241,5.494-4.979l4.127-45.041C100.183,37.241,99.954,35,95.351,35z M92.022,24    c-0.555-2.2-3.275-4-6.047-4H51.903c-2.771,0-6.645-1.588-8.607-3.528l-2.979-2.943C38.354,11.588,34.481,10,31.71,10H15.431    c-2.771,0-5.289,2.236-5.594,4.97L8.376,28H93.03L92.022,24z" />
+    <Grid x:Key="DeleteIcon">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Style="{StaticResource PathStyle}"
+              Data="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM8 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M10.5 4l-2.5 2.5-2.5-2.5-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 2.5-2.5 2.5 2.5 1.5-1.5-2.5-2.5 2.5-2.5z" />
+    </Grid>
+    <!-- Playlist popup menu Icons ENDS -->
+
+    <!-- Preview Bar Related Icons BEGINS -->
+    <Grid x:Key="PreviousKeypointIcon" Width="15" Margin="-10,-5,-10,-5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Path Grid.Column="0" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Height="15"
+              Margin="-1,0,0,0" Stretch="Uniform"
+              Data="M122.5,506.2l118.5,128.6c1.6,1.7,2.5,4,2.5,6.4v329c0,5.2,4.2,9.4,9.4,9.4h80.5c5.2,0,9.4-4.2,9.4-9.4V615.1    c0-2.4-0.9-4.7-2.5-6.4L244.2,506c-3.3-3.5-3.4-8.9-0.2-12.6l96.5-111.3c1.5-1.7,2.3-3.9,2.3-6.2V29.4c0-5.2-4.2-9.4-9.4-9.4    h-80.5c-5.2,0-9.4,4.2-9.4,9.4v329.1c0,2.4-0.9,4.6-2.5,6.4L122.5,493.4C119.2,497,119.2,502.6,122.5,506.2z" />
+        <Path Grid.Column="1" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Margin="-1.5,1,0,0" Stretch="Uniform" VerticalAlignment="Center"
+              Data="M386.6,490.1L571,337.5c0,0,21.9-23.3,21.9,2v86h268.5c0,0,13-3.5,13,16.3v121c0,14.2-11,14-11,14h-265V656    c0,30.5-22.9,7.5-22.9,7.5S403.1,533.7,385,515.5C372,502.5,386.6,490.1,386.6,490.1L386.6,490.1z M386.6,490.1" />
+    </Grid>
+
+    <Grid x:Key="NextKeypointIcon" Width="15" Margin="-10,-5,-10,-5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Path Grid.Column="1" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Height="15"
+              Margin="0,0,-1,0" Stretch="Uniform"
+              Data="M883.3,494.3L762.4,362.9c-1.6-1.8-2.4-4.1-2.4-6.5V20.1c0-5.3-4.6-10.1-9.9-10.1h-82.3c-5.3,0-9.8,4.8-9.8,10.1V383   c0,2.4,1,4.8,2.7,6.6l98.2,105c3.4,3.6,3.5,9.1,0.3,12.9l-98.7,113.8c-1.5,1.7-2.4,4-2.4,6.3v354.2c0,5.3,4.5,9.4,9.8,9.4h82.3   c5.3,0,9.9-4.1,9.9-9.4V645.3c0-2.4,0.8-4.7,2.4-6.5l121-131.4C886.8,503.6,886.7,498,883.3,494.3z" />
+        <Path Grid.Column="0" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Stretch="Uniform" Margin="0,1,-1.5,0" VerticalAlignment="Center"
+              Data="M420.3,333.5c0,0-23.3-23.5-23.3,7.7V422H126c0,0-11,0-11,14.5v123.6c0,20.2,13.1,16.8,13.1,16.8H403v87.7   c0,25.8,22.1,2,22.1,2l188.4-155.9c0,0,14.9-12.7,1.6-26C596.6,466.1,420.3,333.5,420.3,333.5z" />
+    </Grid>
+
+    <Grid x:Key="AddKeypointIcon" Width="15" Margin="-10,-5,-10,-5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Polygon Grid.Row="1" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Height="10"
+                 Stretch="Uniform"
+                 Points="367.4,463.3 255.8,386 144.1,463.3 32.5,540 32.5,986.6 479.1,986.6 479.1,540 " />
+        <Polygon Grid.Row="0" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Height="5"
+                 Margin="5,0,0,0" Stretch="Uniform"
+                 Points="972.4,215.7 771.1,215.7 771.1,14.3 652.9,14.3 652.9,215.7 451.6,215.7 451.6,333.8 652.9,333.8 652.9,535.2   771.1,535.2 771.1,333.8 972.4,333.8 " />
+    </Grid>
+
+    <Grid x:Key="RemoveKeypointIcon" Width="15" Margin="-10,-5,-10,-5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Polygon Grid.Row="1" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Height="10"
+                 Margin="0,1,0,0" Stretch="Uniform" Points="255.8,386 32.5,540 32.5,986.6 479.1,986.6 479.1,540  " />
+        <Polygon Grid.Row="0" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Height="4"
+                 Margin="5,0,0,0" Stretch="Uniform"
+                 Points="938,132.4 854.4,48.8 712,191.2 569.6,48.9 486.1,132.4 628.5,274.7 486,417.1 569.6,500.7 712,358.3 854.4,500.6    937.9,417.1 795.5,274.8  " />
+    </Grid>
+
+    <Grid x:Key="PreviewIcon" Width="15" Margin="-10,-5,-10,-5">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="15"
+              Data="M466.075,161.525c-205.6,0-382.8,121.2-464.2,296.1c-2.5,5.3-2.5,11.5,0,16.9c81.4,174.899,258.601,296.1,464.2,296.1   s382.8-121.2,464.2-296.1c2.5-5.3,2.5-11.5,0-16.9C848.875,282.725,671.675,161.525,466.075,161.525z M466.075,676.226   c-116.1,0-210.1-94.101-210.1-210.101c0-116.1,94.1-210.1,210.1-210.1c116.1,0,210.1,94.1,210.1,210.1   S582.075,676.226,466.075,676.226z" />
+        <Ellipse Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Width="5" Height="5" />
+    </Grid>
+
+    <Grid x:Key="TrimIcon" Width="12" Margin="-10,-5,-10,-5">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="12"
+              Height="12"
+              Data="M6.5,132.3v537h812.8v-537H6.5z M261.1,555.2l-174-154.4l174-154.4V555.2z M435.7,594.1h-45.5V458h45.5V594.1z     M435.7,343.5h-45.5v-136h45.5V343.5z M564.8,555.2V246.4l174,154.4L564.8,555.2z M564.8,555.2" />
+        <Rectangle RadiusX="390.2" RadiusY="708.7" Width="45.5" Height="86.4" />
+        <Rectangle RadiusX="390.2" RadiusY="6.4" Width="45.5" Height="86.4" />
+    </Grid>
+
+    <Grid x:Key="CleanIconPvw" Width="15" Margin="-10,-5,-10,-5">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+              Margin="-10,-4,-15,0"
+              Data="M957.2,292.4L689.5,24.7c-14.4-14.4-37.8-14.4-52.2,0L221.6,440.5l319.9,319.8l415.8-415.8    C971.6,330.1,971.6,306.8,957.2,292.4L957.2,292.4z M957.2,292.4" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="6"
+              Margin="0,5,4,0"
+              Data="M155.5,506.5L42.9,619.2c-14.4,14.4-14.4,37.8,0,52.1L310.6,939c14.4,14.4,37.7,14.4,52.2,0l112.6-112.7L155.5,506.5z     M155.5,506.5" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="10"
+              Margin="-5,10,-12,0" Data="M419.2,987.8h518.4v-75.9H507.6L419.2,987.8z M419.2,987.8" />
+    </Grid>
+    <!-- Preview Bar Related Icons ENDS -->
+
+    <!-- Monitors Related Icons BEGINS -->
+    <Path x:Key="RightArrowIcon" Fill="Red" Data="M15.5 8l-7.5-7.5v4.5h-8v6h8v4.5z" />
+    <Path x:Key="LeftArrowIcon" Fill="Blue" Data="M0.5 8l7.5 7.5v-4.5h8v-6h-8v-4.5z" />
+    <Path x:Key="VolumeMuteIcon" Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+          Data="M6.5 15c-0.13 0-0.258-0.051-0.354-0.146l-3.854-3.854h-1.793c-0.276 0-0.5-0.224-0.5-0.5v-5c0-0.276 0.224-0.5 0.5-0.5h1.793l3.854-3.854c0.143-0.143 0.358-0.186 0.545-0.108s0.309 0.26 0.309 0.462v13c0 0.202-0.122 0.385-0.309 0.462-0.062 0.026-0.127 0.038-0.191 0.038z" />
+
+    <StackPanel x:Key="VolumeIcon">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M13.907 14.407c-0.192 0-0.384-0.073-0.53-0.22-0.293-0.293-0.293-0.768 0-1.061 1.369-1.369 2.123-3.19 2.123-5.127s-0.754-3.757-2.123-5.127c-0.293-0.293-0.293-0.768 0-1.061s0.768-0.293 1.061 0c1.653 1.653 2.563 3.85 2.563 6.187s-0.91 4.534-2.563 6.187c-0.146 0.146-0.338 0.22-0.53 0.22zM11.243 12.993c-0.192 0-0.384-0.073-0.53-0.22-0.293-0.293-0.293-0.768 0-1.061 2.047-2.047 2.047-5.378 0-7.425-0.293-0.293-0.293-0.768 0-1.061s0.768-0.293 1.061 0c1.275 1.275 1.977 2.97 1.977 4.773s-0.702 3.498-1.977 4.773c-0.146 0.146-0.338 0.22-0.53 0.22v0zM8.578 11.578c-0.192 0-0.384-0.073-0.53-0.22-0.293-0.293-0.293-0.768 0-1.061 1.267-1.267 1.267-3.329 0-4.596-0.293-0.293-0.293-0.768 0-1.061s0.768-0.293 1.061 0c1.852 1.852 1.852 4.865 0 6.718-0.146 0.146-0.338 0.22-0.53 0.22z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M6.5 15c-0.13 0-0.258-0.051-0.354-0.146l-3.854-3.854h-1.793c-0.276 0-0.5-0.224-0.5-0.5v-5c0-0.276 0.224-0.5 0.5-0.5h1.793l3.854-3.854c0.143-0.143 0.358-0.186 0.545-0.108s0.309 0.26 0.309 0.462v13c0 0.202-0.122 0.385-0.309 0.462-0.062 0.026-0.127 0.038-0.191 0.038z" />
+    </StackPanel>
+
+    <StackPanel x:Key="VolumeWhiteIcon">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="6"
+              Margin="0,3,-4,0"
+              Data="M13.907 14.407c-0.192 0-0.384-0.073-0.53-0.22-0.293-0.293-0.293-0.768 0-1.061 1.369-1.369 2.123-3.19 2.123-5.127s-0.754-3.757-2.123-5.127c-0.293-0.293-0.293-0.768 0-1.061s0.768-0.293 1.061 0c1.653 1.653 2.563 3.85 2.563 6.187s-0.91 4.534-2.563 6.187c-0.146 0.146-0.338 0.22-0.53 0.22zM11.243 12.993c-0.192 0-0.384-0.073-0.53-0.22-0.293-0.293-0.293-0.768 0-1.061 2.047-2.047 2.047-5.378 0-7.425-0.293-0.293-0.293-0.768 0-1.061s0.768-0.293 1.061 0c1.275 1.275 1.977 2.97 1.977 4.773s-0.702 3.498-1.977 4.773c-0.146 0.146-0.338 0.22-0.53 0.22v0zM8.578 11.578c-0.192 0-0.384-0.073-0.53-0.22-0.293-0.293-0.293-0.768 0-1.061 1.267-1.267 1.267-3.329 0-4.596-0.293-0.293-0.293-0.768 0-1.061s0.768-0.293 1.061 0c1.852 1.852 1.852 4.865 0 6.718-0.146 0.146-0.338 0.22-0.53 0.22z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="5"
+              Margin="0,-9,8,0"
+              Data="M6.5 15c-0.13 0-0.258-0.051-0.354-0.146l-3.854-3.854h-1.793c-0.276 0-0.5-0.224-0.5-0.5v-5c0-0.276 0.224-0.5 0.5-0.5h1.793l3.854-3.854c0.143-0.143 0.358-0.186 0.545-0.108s0.309 0.26 0.309 0.462v13c0 0.202-0.122 0.385-0.309 0.462-0.062 0.026-0.127 0.038-0.191 0.038z" />
+    </StackPanel>
+
+    <StackPanel x:Key="NoSoundIcon">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M15 9.674v1.326h-1.326l-1.674-1.674-1.674 1.674h-1.326v-1.326l1.674-1.674-1.674-1.674v-1.326h1.326l1.674 1.674 1.674-1.674h1.326v1.326l-1.674 1.674 1.674 1.674z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M6.5 15c-0.13 0-0.258-0.051-0.354-0.146l-3.854-3.854h-1.793c-0.276 0-0.5-0.224-0.5-0.5v-5c0-0.276 0.224-0.5 0.5-0.5h1.793l3.854-3.854c0.143-0.143 0.358-0.186 0.545-0.108s0.309 0.26 0.309 0.462v13c0 0.202-0.122 0.385-0.309 0.462-0.062 0.026-0.127 0.038-0.191 0.038z" />
+    </StackPanel>
+
+    <Grid x:Key="ElargeIcon" Width="14">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="5"
+              Margin="6,-6,2,0" Data="M16 0h-6.5l2.5 2.5-3 3 1.5 1.5 3-3 2.5 2.5z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="5"
+              Margin="6,6,2,0" Data="M16 16v-6.5l-2.5 2.5-3-3-1.5 1.5 3 3-2.5 2.5z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="5"
+              Margin="-6,6,2,0" Data="M0 16h6.5l-2.5-2.5 3-3-1.5-1.5-3 3-2.5-2.5z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}" Stretch="Uniform" Width="5"
+              Margin="-6,-6,2,0" Data="M0 0v6.5l2.5-2.5 3 3 1.5-1.5-3-3 2.5-2.5z" />
+    </Grid>
+
+    <Grid x:Key="ShrinkIcon">
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M9 7h6.5l-2.5-2.5 3-3-1.5-1.5-3 3-2.5-2.5z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M9 9v6.5l2.5-2.5 3 3 1.5-1.5-3-3 2.5-2.5z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M7 9h-6.5l2.5 2.5-3 3 1.5 1.5 3-3 2.5 2.5z" />
+        <Path Fill="{Binding Foreground, Source={x:Static local:ColorHelper.Instance}}"
+              Data="M7 7v-6.5l-2.5 2.5-3-3-1.5 1.5 3 3-2.5 2.5z" />
+    </Grid>
+    <!-- Monitors Related Icons ENDS -->
+</ResourceDictionary>
