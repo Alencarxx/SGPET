@@ -16,10 +16,12 @@ namespace SGPET.ViewModel
         {
             HomeCmd = new RelayCommand<object>(ExecuteHomeCmd, null);
             ClienteCmd = new RelayCommand<object>(ExecuteClienteCmd, null);
+            ContratoCmd = new RelayCommand<object>(ExecuteContratoCmd, null);
         }
 
         public ICommand HomeCmd { get; internal set; }
         public ICommand ClienteCmd { get; internal set; }
+        public ICommand ContratoCmd { get; internal set; }
 
 
         public void ExecuteHomeCmd(object parameter)
@@ -31,6 +33,12 @@ namespace SGPET.ViewModel
         {
             var clientesWidnow = new ClientesWindow();
             clientesWidnow.ShowDialog();
+        }
+
+        public void ExecuteContratoCmd(object parameter)
+        {
+            var contratosWidnow = new ContratosWindow();
+            contratosWidnow.ShowDialog();
         }
     }
 }

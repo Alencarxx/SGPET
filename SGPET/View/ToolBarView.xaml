@@ -15,7 +15,7 @@
 
         <MenuItem x:Name="Clientes" Header="Clientes" Command="{Binding ClienteCmd}" Foreground="AliceBlue" Background="Black" />
 
-        <MenuItem x:Name="Contratos" Header="Contratos" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Contratos" Header="Contratos" Command="{Binding ContratoCmd}" Foreground="AliceBlue" Background="Black" />
 
         <MenuItem x:Name="Agendamentos" Header="Agendamentos" Foreground="AliceBlue" Background="Black" />
 

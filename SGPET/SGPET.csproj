@@ -234,6 +234,9 @@
     <Compile Include="View\ClientesWindow.xaml.cs">
       <DependentUpon>ClientesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ContratosWindow.xaml.cs">
+      <DependentUpon>ContratosWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Helper\ColorHeper.cs" />
     <Compile Include="View\Helper\UIHelper.cs" />
     <Compile Include="View\HomePage.xaml.cs">
@@ -254,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ClientesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ContratosWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
