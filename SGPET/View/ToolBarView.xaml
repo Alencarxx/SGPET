@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="SGPET.View.ToolBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:p="clr-namespace:SGPET.Properties"
+             xmlns:local="clr-namespace:SGPET.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="24" d:DesignWidth="880">
+    
+  <Menu Background="Black" Margin="2,0">
+      
+      <MenuItem x:Name="Home" Header="Home" Foreground="AliceBlue" Background="Black" />
+      
+        <MenuItem x:Name="Clientes" Header="Clientes" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Contratos" Header="Contratos" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Agendamentos" Header="Agendamentos" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Vacinas" Header="Vacinas" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Produtos" Header="Produtos" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Vendas" Header="Vendas" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Financeiro" Header="Financeriro" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Sobre" Header="Sobre" Foreground="AliceBlue" Background="Black" />
+
+    </Menu>
+    
+</UserControl>
