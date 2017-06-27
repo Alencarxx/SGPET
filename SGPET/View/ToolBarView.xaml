@@ -5,25 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:p="clr-namespace:SGPET.Properties"
              xmlns:local="clr-namespace:SGPET.View"
+             xmlns:helper="clr-namespace:SGPET.View.Helper"
              mc:Ignorable="d" 
              d:DesignHeight="24" d:DesignWidth="880"
               DataContext="{Binding Source={StaticResource Locator},  Path=ToolBar}" >
 
-    <Menu Background="Black" Margin="2,0">
+    <Menu Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}" Margin="2,0">
 
-        <MenuItem x:Name="Home" Header="Home" Command="{Binding HomeCmd}" Foreground="AliceBlue" Background="Black" Style="{DynamicResource NeoExpressMenuItemWithoutKeys}" />
+        <MenuItem x:Name="Home" Header="Home" Command="{Binding HomeCmd}" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <MenuItem x:Name="Clientes" Header="Clientes" Command="{Binding ClienteCmd}" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Clientes" Header="Clientes" Command="{Binding ClienteCmd}" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <MenuItem x:Name="Contratos" Header="Contratos" Command="{Binding ContratoCmd}" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Contratos" Header="Contratos" Command="{Binding ContratoCmd}" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <MenuItem x:Name="Agendamentos" Header="Agendamentos" Command="{Binding AgendamentoCmd}" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Agendamentos" Header="Agendamentos" Command="{Binding AgendamentoCmd}" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <MenuItem x:Name="Vacinas" Header="Vacinas" Command="{Binding VacinaCmd}" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Vacinas" Header="Vacinas" Command="{Binding VacinaCmd}" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}"/>
 
-        <MenuItem x:Name="Produtos" Header="Produtos" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Produtos" Header="Produtos" Command="{Binding ProdutoCmd}"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <MenuItem x:Name="Vendas" Header="Vendas" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Vendas" Header="Vendas"  Command="{Binding VendaCmd}"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
         <MenuItem x:Name="Financeiro" Header="Financeriro" Foreground="AliceBlue" Background="Black" />
 
