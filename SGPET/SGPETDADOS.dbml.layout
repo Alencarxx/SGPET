@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SGPETDADOS">
+  <DataContextMoniker Name="/SGPETDADOSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="385fd750-4813-4efc-a126-d088f35dcd75" absoluteBounds="0.5, 0.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/SGPETDADOSDataContext/Agendamento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d4d67ae-ee97-40a0-a8a0-72c455ecad2f" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
