@@ -231,6 +231,9 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ToolBarViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AgendamentoWindow.xaml.cs">
+      <DependentUpon>AgendamentoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ClientesWindow.xaml.cs">
       <DependentUpon>ClientesWindow.xaml</DependentUpon>
     </Compile>
@@ -245,6 +248,9 @@
     <Compile Include="View\ToolBarView.xaml.cs">
       <DependentUpon>ToolBarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VacinaWindow.xaml.cs">
+      <DependentUpon>VacinaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -253,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AgendamentoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,6 +291,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ToolBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VacinaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

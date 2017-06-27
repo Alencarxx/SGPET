@@ -10,16 +10,16 @@
               DataContext="{Binding Source={StaticResource Locator},  Path=ToolBar}" >
 
     <Menu Background="Black" Margin="2,0">
-      
-      <MenuItem x:Name="Home" Header="Home" Command="{Binding HomeCmd}" Foreground="AliceBlue" Background="Black" />
+
+        <MenuItem x:Name="Home" Header="Home" Command="{Binding HomeCmd}" Foreground="AliceBlue" Background="Black" Style="{DynamicResource NeoExpressMenuItemWithoutKeys}" />
 
         <MenuItem x:Name="Clientes" Header="Clientes" Command="{Binding ClienteCmd}" Foreground="AliceBlue" Background="Black" />
 
         <MenuItem x:Name="Contratos" Header="Contratos" Command="{Binding ContratoCmd}" Foreground="AliceBlue" Background="Black" />
 
-        <MenuItem x:Name="Agendamentos" Header="Agendamentos" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Agendamentos" Header="Agendamentos" Command="{Binding AgendamentoCmd}" Foreground="AliceBlue" Background="Black" />
 
-        <MenuItem x:Name="Vacinas" Header="Vacinas" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Vacinas" Header="Vacinas" Command="{Binding VacinaCmd}" Foreground="AliceBlue" Background="Black" />
 
         <MenuItem x:Name="Produtos" Header="Produtos" Foreground="AliceBlue" Background="Black" />
 

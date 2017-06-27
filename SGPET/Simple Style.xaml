@@ -55,7 +55,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NeoExpressMenuItem" TargetType="{x:Type MenuItem}">
+    <Style x:Key="SGPETMenuItem" TargetType="{x:Type MenuItem}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
@@ -144,7 +144,7 @@
                                            Value="SubmenuHeader" />
                             </MultiDataTrigger.Conditions>
 
-                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                            <Setter Property="Background" Value="{DynamicResource SGPETMenuMouseOverBrush}"
                                     TargetName="Border" />
                         </MultiDataTrigger>
 
@@ -156,7 +156,7 @@
                                            Value="SubmenuItem" />
                             </MultiDataTrigger.Conditions>
 
-                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                            <Setter Property="Background" Value="{DynamicResource SGPETMenuMouseOverBrush}"
                                     TargetName="Border" />
                         </MultiDataTrigger>
 
@@ -209,7 +209,7 @@
     </Style>
 
 
-    <Style x:Key="NeoExpressMenuItemWithoutKeys" TargetType="{x:Type MenuItem}">
+    <Style x:Key="SGPETMenuItemWithoutKeys" TargetType="{x:Type MenuItem}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuItem}">
@@ -291,7 +291,7 @@
                                            Value="SubmenuHeader" />
                             </MultiDataTrigger.Conditions>
 
-                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                            <Setter Property="Background" Value="{DynamicResource SGPETMenuMouseOverBrush}"
                                     TargetName="Border" />
                         </MultiDataTrigger>
 
@@ -303,7 +303,7 @@
                                            Value="SubmenuItem" />
                             </MultiDataTrigger.Conditions>
 
-                            <Setter Property="Background" Value="{DynamicResource NeoExpressMenuMouseOverBrush}"
+                            <Setter Property="Background" Value="{DynamicResource SGPETMenuMouseOverBrush}"
                                     TargetName="Border" />
                         </MultiDataTrigger>
 
@@ -343,7 +343,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NeoExpressSeparator" TargetType="{x:Type Separator}">
+    <Style x:Key="SGPETSeparator" TargetType="{x:Type Separator}">
         <Setter Property="Background" Value="#FF1D1D1D" />
         <Setter Property="Focusable" Value="false" />
         <Setter Property="Template">
