@@ -47,9 +47,17 @@
                   Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
                   Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <MenuItem x:Name="Financeiro" Header="Financeriro" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Financeiro" Header="Financeiro" 
+                  Command="{Binding FinanceiroCmd}"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <MenuItem x:Name="Sobre" Header="Sobre" Foreground="AliceBlue" Background="Black" />
+        <MenuItem x:Name="Sobre" Header="Sobre"
+                  Command="{Binding SobreCmd}"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
     </Menu>
     

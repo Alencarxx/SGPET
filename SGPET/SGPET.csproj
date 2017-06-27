@@ -240,6 +240,9 @@
     <Compile Include="View\ContratosWindow.xaml.cs">
       <DependentUpon>ContratosWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FinanceiroWindow.xaml.cs">
+      <DependentUpon>FinanceiroWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Helper\ColorHeper.cs" />
     <Compile Include="View\Helper\UIHelper.cs" />
     <Compile Include="View\HomePage.xaml.cs">
@@ -247,6 +250,9 @@
     </Compile>
     <Compile Include="View\ProdutoWindow.xaml.cs">
       <DependentUpon>ProdutoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SobreWindow.xaml.cs">
+      <DependentUpon>SobreWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ToolBarView.xaml.cs">
       <DependentUpon>ToolBarView.xaml</DependentUpon>
@@ -280,6 +286,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\FinanceiroWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -297,6 +307,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ProdutoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SobreWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

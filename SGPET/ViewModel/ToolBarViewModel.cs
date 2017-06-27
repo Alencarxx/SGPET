@@ -21,6 +21,8 @@ namespace SGPET.ViewModel
             VacinaCmd = new RelayCommand<object>(ExecuteVacinaCmd, null);
             ProdutoCmd = new RelayCommand<object>(ExecuteProdutoCmd, null);
             VendaCmd = new RelayCommand<object>(ExecuteVendaCmd, null);
+            FinanceiroCmd = new RelayCommand<object>(ExecuteFinanceiroCmd, null);
+            SobreCmd = new RelayCommand<object>(ExecuteSobreCmd, null);
         }
 
         public ICommand HomeCmd { get; internal set; }
@@ -30,8 +32,8 @@ namespace SGPET.ViewModel
         public ICommand VacinaCmd { get; internal set; }
         public ICommand ProdutoCmd { get; internal set; }
         public ICommand VendaCmd { get; internal set; }
-        
-
+        public ICommand FinanceiroCmd { get; internal set; }
+        public ICommand SobreCmd { get; internal set; }
 
         private void ExecuteHomeCmd(object parameter)
         {
@@ -74,6 +76,18 @@ namespace SGPET.ViewModel
             vendaWidnow.ShowDialog();
         }
 
+        private void ExecuteFinanceiroCmd(object parameter)
+        {
+            var financeiroWidnow = new FinanceiroWindow();
+            financeiroWidnow.ShowDialog();
+        }
+
+
+        private void ExecuteSobreCmd(object parameter)
+        {
+            var sobreWidnow = new SobreWindow();
+            sobreWidnow.ShowDialog();
+        }
 
     }
 }
