@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Markup;
 using System.Windows.Threading;
 using DevExpress.Xpf.Utils.Themes;
 using log4net;
@@ -24,6 +26,8 @@ namespace SGPET
         {
             try
             {
+                FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement), new FrameworkPropertyMetadata(
+                    XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
                 //StartLog();
                 Log.Info("SGPET starting....");
                 Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;

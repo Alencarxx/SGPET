@@ -254,6 +254,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Agendamento.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="SGPETDADOS.designer.cs">
       <AutoGen>True</AutoGen>
@@ -265,6 +266,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SGPETDADOSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AgendamentoViewModel.cs" />
     <Compile Include="ViewModel\BasicViewModel.cs" />
     <Compile Include="ViewModel\ClientesViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -441,6 +443,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.2.1.0\build\netstandard1.0\Fody.targets" Condition="Exists('..\packages\Fody.2.1.0\build\netstandard1.0\Fody.targets')" />

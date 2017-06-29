@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Globalization;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SGPET.View
 {
@@ -19,6 +13,11 @@ namespace SGPET.View
     /// </summary>
     public partial class AgendamentoWindow : Window
     {
+        string strConexao = "";
+        SqlConnection conn = null;
+
+       
+
         public AgendamentoWindow()
         {
             InitializeComponent();
@@ -26,26 +25,95 @@ namespace SGPET.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            System.Windows.Data.CollectionViewSource agendamentoViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("agendamentoViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // agendamentoViewSource.Source = [generic data source]
-            SGPET.SGPETDADOSDataSet sGPETDADOSDataSet = ((SGPET.SGPETDADOSDataSet)(this.FindResource("sGPETDADOSDataSet")));
-            // Load data into the table Agendamentos. You can modify this code as needed.
-            SGPET.SGPETDADOSDataSetTableAdapters.AgendamentosTableAdapter sGPETDADOSDataSetAgendamentosTableAdapter = new SGPET.SGPETDADOSDataSetTableAdapters.AgendamentosTableAdapter();
-            sGPETDADOSDataSetAgendamentosTableAdapter.Fill(sGPETDADOSDataSet.Agendamentos);
-            System.Windows.Data.CollectionViewSource agendamentosViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("agendamentosViewSource")));
-            agendamentosViewSource.View.MoveCurrentToFirst();
+            strConexao = ConfigurationManager.ConnectionStrings["ConexaoSQLServer"].ConnectionString;
+            VincularDados();
         }
 
-        private void agendamentosDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        public void VincularDados()
         {
-            throw new NotImplementedException();
+            try
+            {
+                
+                // Create a new CultureInfo for the United Kingdom.
+                CultureInfo myCultureInfo = new CultureInfo("pt-br");
+
+                conn = new SqlConnection(strConexao);
+                conn.Open();
+                SqlCommand comm = new SqlCommand("SELECT * FROM Agendamento", conn);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(comm);
+                
+                da.Fill(dt);
+                dt.Locale = myCultureInfo;
+                macDataGrid.ItemsSource = dt.DefaultView; //ds.Tables[0].DefaultView;
+                
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        private void agendamentosDataGrid_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.PropertyType == typeof(System.DateTime))
+                (e.Column as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
         }
+
+        private void macDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (this.macDataGrid.SelectedCells.Count > 0)
+            {
+                this.animalTextBox.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Animal"].ToString();
+                this.banhoTextBox.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Banho"].ToString();
+                this.diadasemanaTextBox.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Diadasemana"].ToString();
+                this.foneTextBox.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Fone"].ToString();
+                this.observacaoTextBox.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Observacao"].ToString();
+                this.proprietarioTextBox.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Proprietario"].ToString();
+                this.saidaDatePicker.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Saida"].ToString();
+                this.chegadaDatePicker.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Chegada"].ToString();
+                this.totalTextBox.Text = ((DataRowView)macDataGrid.SelectedItem).Row["Total"].ToString();
+            }
+        }
+
+        private void btnInserir_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                conn = new SqlConnection(strConexao);
+                conn.Open();
+
+                string sql = "INSERT INTO Agendamento VALUES(" +
+                             "'" + diadasemanaTextBox.Text + "'," +
+                             "'" + animalTextBox.Text + "'," +
+                             "'" + proprietarioTextBox.Text + "'," +
+                             "'" + foneTextBox.Text + "', " +
+                             "'" + banhoTextBox.Text + "'," +
+                             "'" + chegadaDatePicker.SelectedDate.Value.Date + "'," +
+                             " '" + saidaDatePicker.SelectedDate.Value.Date + "'," +
+                             "'" + observacaoTextBox.Text + "', " +
+                             " '" + totalTextBox.Text + "' )";
+
+                SqlCommand comm = new SqlCommand(sql, conn);
+                comm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+                VincularDados();
+            }
+        }
+
     }
 }
