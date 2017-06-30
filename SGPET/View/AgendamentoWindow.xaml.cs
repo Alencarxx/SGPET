@@ -5,13 +5,14 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Globalization;
 using System.Windows.Controls;
+using DevExpress.Xpf.Core;
 
 namespace SGPET.View
 {
     /// <summary>
     /// Interaction logic for AgendamentoWindow.xaml
     /// </summary>
-    public partial class AgendamentoWindow : Window
+    public partial class AgendamentoWindow : DXWindow
     {
         string strConexao = "";
         SqlConnection conn = null;
@@ -90,18 +91,15 @@ namespace SGPET.View
                 conn = new SqlConnection(strConexao);
                 conn.Open();
 
-                string sql = "INSERT INTO Agendamento VALUES(" +
-                             "'" + diadasemanaTextBox.Text + "'," +
-                             "'" + animalTextBox.Text + "'," +
-                             "'" + proprietarioTextBox.Text + "'," +
-                             "'" + foneTextBox.Text + "', " +
-                             "'" + banhoTextBox.Text + "'," +
-                             "'" + chegadaDatePicker.SelectedDate.Value.Date + "'," +
-                             " '" + saidaDatePicker.SelectedDate.Value.Date + "'," +
-                             "'" + observacaoTextBox.Text + "', " +
-                             " '" + totalTextBox.Text + "' )";
+                if (chegadaDatePicker?.SelectedDate == null && saidaDatePicker?.SelectedDate == null) return;
+                var date1 = chegadaDatePicker?.SelectedDate.Value.Date;
+                var date2 = saidaDatePicker?.SelectedDate.Value.Date;
+
+                string sql = "INSERT INTO Agendamento (Diadasemana, Animal, Proprietario, Fone, Banho, Chegada, Saida, Observacao, Total) VALUES('" + diadasemanaTextBox.Text + "','" + animalTextBox.Text + "','" + proprietarioTextBox.Text + "','" + foneTextBox.Text + "', '" + banhoTextBox.Text + "',  @value , @value2,'" + observacaoTextBox.Text + "', '" + totalTextBox.Text + "' )";
 
                 SqlCommand comm = new SqlCommand(sql, conn);
+                comm.Parameters.AddWithValue("@value", date1);
+                comm.Parameters.AddWithValue("@value2", date2);
                 comm.ExecuteNonQuery();
             }
             catch (Exception ex)

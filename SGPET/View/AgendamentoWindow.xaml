@@ -1,10 +1,12 @@
-﻿<Window
+﻿<dx:DXWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGPET.View"
-        xmlns:SGPET="clr-namespace:SGPET" x:Class="SGPET.View.AgendamentoWindow"
+        xmlns:SGPET="clr-namespace:SGPET"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        x:Class="SGPET.View.AgendamentoWindow"
         mc:Ignorable="d"
         Title="AgendamentoWindow" Height="700" Width="880" Loaded="Window_Loaded">
     <Window.Resources>
@@ -19,7 +21,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Foreground="Black">Agendamentos</Label>
-        <DataGrid  AutoGenerateColumns="True" Height="311" HorizontalAlignment="Left" Margin="12,25,0,0" Name="macDataGrid" VerticalAlignment="Top" Width="852" SelectionChanged="macDataGrid_SelectionChanged" Grid.RowSpan="3" />
+        <DataGrid  AutoGenerateColumns="True" Height="311" HorizontalAlignment="Left" Margin="12,25,0,0" Name="macDataGrid" VerticalAlignment="Top" Width="852" SelectionChanged="macDataGrid_SelectionChanged"
+                   Grid.Row="0" Grid.RowSpan="3" />
         <!--<DataGrid Name="macDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True"  Margin="10,5.4,9.6,357.4" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="macDataGrid_SelectionChanged" Grid.Row="2">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="animalColumn" Binding="{Binding Animal}" Header="Animal" Width="SizeToHeader"/>
@@ -87,7 +90,5 @@
         </Grid>
         <Button Content="Inserir" Height="75" HorizontalAlignment="Left" Margin="565,345,0,0" Name="btnInserir" VerticalAlignment="Top" Width="144" Click="btnInserir_Click" Grid.RowSpan="3" />
 
-
-
     </Grid>
-</Window>
+</dx:DXWindow>

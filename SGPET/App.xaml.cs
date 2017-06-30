@@ -32,7 +32,7 @@ namespace SGPET
                 Log.Info("SGPET starting....");
                 Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
                 //AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-                //GlobalThemeHelper.Instance.ApplicationThemeName = Config.ApplicationThemeName;
+                GlobalThemeHelper.Instance.ApplicationThemeName = "MetropolisDark";
                 //SplashScreen.Show();
                 LoadDispatcher(() =>
                 {
