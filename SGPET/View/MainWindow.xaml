@@ -6,21 +6,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:SGPET.View"
         xmlns:local="clr-namespace:SGPET"
+        xmlns:helper="clr-namespace:SGPET.View.Helper"
         mc:Ignorable="d"
         Title="SGPET" Height="800" Width="880">
-    <Grid Name="WindowContent">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="329*"/>
-            <ColumnDefinition Width="544*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Grid Name="grid1">
+        <!--<view:ToolBarView Grid.Row="0" x:Name="ToolBar" Grid.ColumnSpan="2" Margin="0,0,-0.4,745.4" Grid.RowSpan="2" />-->
+        <Menu Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}" Margin="2,0">
 
-        <view:ToolBarView Grid.Row="0" x:Name="ToolBar" Grid.ColumnSpan="2" Margin="0,0,-0.4,745.4" Grid.RowSpan="2" />
+            <MenuItem x:Name="Home" Header="Home" Click="Home_OnClick"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-        <view:HomePage Grid.Row="1" x:Name="HomePage" Grid.ColumnSpan="2" Margin="0,0.2,-0.4,0.4" />
+            <MenuItem x:Name="Clientes" Header="Clientes" Click="Clientes_OnClick" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
+
+            <MenuItem x:Name="Contratos" Header="Contratos" Click="Contratos_OnClick" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
+
+            <MenuItem x:Name="Agendamentos" Header="Agendamentos" Click="Agendamentos_OnClick" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
+
+            <MenuItem x:Name="Vacinas" Header="Vacinas" Click="Vacinas_OnClick" 
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}"/>
+
+            <MenuItem x:Name="Produtos" Header="Produtos" Click="Produtos_OnClick"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
+
+            <MenuItem x:Name="Vendas" Header="Vendas"  Click="Vendas_OnClick"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
+
+            <MenuItem x:Name="Financeiro" Header="Financeiro" Click="Financeiro_OnClick"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
+
+            <MenuItem x:Name="Sobre" Header="Sobre" Click="Sobre_OnClick"
+                  Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
+                  Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
+
+        </Menu>
+
+        <Grid Name="grid2" Background="Black" Height="Auto" Width="Auto" Margin="10,30,9.6,10.4">
+            <!--<view:HomePage Grid.Row="1" x:Name="HomePage" Grid.ColumnSpan="2" Margin="0,0.2,-0.4,0.4" />-->
+        </Grid>
+
 
     </Grid>
 </dx:DXWindow>

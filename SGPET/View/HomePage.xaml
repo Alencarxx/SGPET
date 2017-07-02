@@ -15,7 +15,7 @@
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
     </UserControl.Resources>
-    <Grid Background="AliceBlue" DataContext="{StaticResource agendamentoViewSource}">
+    <Grid Background="Black" DataContext="{StaticResource agendamentoViewSource}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -24,7 +24,7 @@
         <Label Foreground="Black" Content="Agendamentos realizados"/>
 
 
-        <dxg:GridControl Name="griddatacontrol" SelectionMode="Row" AutoGenerateColumns="KeepOld" ItemsSource="{Binding Data, Source={StaticResource TypedSimpleSource}}" Margin="0,0,0,10" Grid.RowSpan="3" >
+        <dxg:GridControl Name="griddatacontrol" SelectionMode="Row" AutoGenerateColumns="KeepOld" ItemsSource="{Binding Data, Source={StaticResource TypedSimpleSource}}" Grid.RowSpan="3" >
             <dxg:GridControl.View>
                 <dxg:TableView ShowGroupPanel="False"/>
             </dxg:GridControl.View>

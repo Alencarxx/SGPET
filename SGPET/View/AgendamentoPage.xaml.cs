@@ -12,15 +12,14 @@ using log4net;
 namespace SGPET.View
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for AgendamentoPage.xaml
     /// </summary>
-    public partial class HomePage : UserControl
+    public partial class AgendamentoPage : UserControl
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         string strConexao = "";
         SqlConnection conn = null;
-
-        public HomePage()
+        public AgendamentoPage()
         {
             InitializeComponent();
         }

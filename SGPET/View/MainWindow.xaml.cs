@@ -25,6 +25,58 @@ namespace SGPET.View
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
+            HomePage homepage = new HomePage();
+            grid2.Children.Clear();
+            grid2.Children.Add(homepage);
+        }
+
+        private void Home_OnClick(object sender, RoutedEventArgs e)
+        {
+            HomePage homepage = new HomePage();
+            grid2.Children.Clear();
+            grid2.Children.Add(homepage);
+        }
+
+        private void Clientes_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Contratos_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Agendamentos_OnClick(object sender, RoutedEventArgs e)
+        {
+            AgendamentoPage agendamentop = new AgendamentoPage();
+            grid2.Children.Clear();
+            grid2.Children.Add(agendamentop);
+        }
+
+        private void Vacinas_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Produtos_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Vendas_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Financeiro_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Sobre_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
