@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGPET.View"
+        xmlns:p="clr-namespace:SGPET.Properties"
         mc:Ignorable="d"
-        Title="VendaWindow" Height="700" Width="880">
+        Title="{x:Static p:Resources.Vendas}" Height="700" Width="880">
     <Grid>
         <Label Foreground="Black">Vendas</Label>
     </Grid>

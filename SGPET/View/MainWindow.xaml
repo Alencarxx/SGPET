@@ -7,8 +7,9 @@
         xmlns:view="clr-namespace:SGPET.View"
         xmlns:local="clr-namespace:SGPET"
         xmlns:helper="clr-namespace:SGPET.View.Helper"
+        xmlns:p="clr-namespace:SGPET.Properties"
         mc:Ignorable="d"
-        Title="SGPET" Height="800" Width="880">
+        Title="{x:Static p:Resources.SGPETMain}" Height="800" Width="880">
     <Grid Name="grid1">
         <!--<view:ToolBarView Grid.Row="0" x:Name="ToolBar" Grid.ColumnSpan="2" Margin="0,0,-0.4,745.4" Grid.RowSpan="2" />-->
         <Menu Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}" Margin="2,0">
