@@ -42,8 +42,8 @@ namespace SGPET.ViewModel
 
         private void ExecuteClienteCmd(object parameter)
         {
-            var clientesWidnow = new ClientesWindow();
-            clientesWidnow.ShowDialog();
+            var clientesWindow = new ClientesWindow();
+            clientesWindow.ShowDialog();
         }
 
         private void ExecuteContratoCmd(object parameter)

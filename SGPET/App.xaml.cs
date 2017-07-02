@@ -21,7 +21,7 @@ namespace SGPET
     /// </summary>
     public partial class App : Application
     {
-        public static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         protected override void OnStartup(StartupEventArgs e)
         {
             try

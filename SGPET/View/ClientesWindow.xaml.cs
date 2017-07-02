@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DevExpress.Xpf.Core;
 
 namespace SGPET.View
 {
     /// <summary>
     /// Interaction logic for ClientesWindow.xaml
     /// </summary>
-    public partial class ClientesWindow : Window
+    public partial class ClientesWindow : DXWindow
     {
         public ClientesWindow()
         {
