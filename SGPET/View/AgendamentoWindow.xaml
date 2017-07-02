@@ -1,18 +1,19 @@
 ﻿<dx:DXWindow
+        x:Class="SGPET.View.AgendamentoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SGPET.View"
-        xmlns:SGPET="clr-namespace:SGPET"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:p="clr-namespace:SGPET.Properties"
-        x:Class="SGPET.View.AgendamentoWindow"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxthm="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sgpet="clr-namespace:SGPET"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.Agendamento}" Height="720" Width="880" Loaded="Window_Loaded">
     <Window.Resources>
-        <CollectionViewSource x:Key="agendamentoViewSource" d:DesignSource="{d:DesignInstance {x:Type SGPET:Agendamento}, CreateList=True}"/>
-        <SGPET:SGPETDADOSDataSet x:Key="sGPETDADOSDataSet"/>
+        <CollectionViewSource x:Key="agendamentoViewSource" d:DesignSource="{d:DesignInstance {x:Type sgpet:Agendamento}, CreateList=True}"/>
+        <sgpet:SGPETDADOSDataSet x:Key="sGPETDADOSDataSet"/>
         <CollectionViewSource x:Key="agendamentosViewSource" Source="{Binding Agendamentos, Source={StaticResource sGPETDADOSDataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource agendamentoViewSource}">

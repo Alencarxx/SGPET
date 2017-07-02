@@ -22,7 +22,7 @@ namespace SGPET.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SGPET.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SGPET.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace SGPET.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Agendamentos.
         /// </summary>
-        internal static string Agendamento {
+        public static string Agendamento {
             get {
                 return ResourceManager.GetString("Agendamento", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Clientes.
         /// </summary>
-        internal static string Clientes {
+        public static string Clientes {
             get {
                 return ResourceManager.GetString("Clientes", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Financeiro.
         /// </summary>
-        internal static string Financeiro {
+        public static string Financeiro {
             get {
                 return ResourceManager.GetString("Financeiro", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Produtos.
         /// </summary>
-        internal static string Produtos {
+        public static string Produtos {
             get {
                 return ResourceManager.GetString("Produtos", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to SGPET - Sistema de Gerenciamento PETs.
         /// </summary>
-        internal static string SGPETMain {
+        public static string SGPETMain {
             get {
                 return ResourceManager.GetString("SGPETMain", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Sobre.
         /// </summary>
-        internal static string Sobre {
+        public static string Sobre {
             get {
                 return ResourceManager.GetString("Sobre", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vacinas.
         /// </summary>
-        internal static string Vacinas {
+        public static string Vacinas {
             get {
                 return ResourceManager.GetString("Vacinas", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace SGPET.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Vendas.
         /// </summary>
-        internal static string Vendas {
+        public static string Vendas {
             get {
                 return ResourceManager.GetString("Vendas", resourceCulture);
             }
