@@ -74,6 +74,9 @@ namespace SGPET.View
         {
             try
             {
+                if (diadasemanaTextBox.Text == "" && animalTextBox.Text == "" && proprietarioTextBox.Text == "" &&
+                    foneTextBox.Text == "" && banhoTextBox.Text == "" && observacaoTextBox.Text == "" && totalTextBox.Text == "") return;
+
                 _conn = new SqlConnection(_strConexao);
                 _conn.Open();
 
@@ -112,6 +115,10 @@ namespace SGPET.View
         {
             try
             {
+                if (diadasemanaTextBox.Text == "" && animalTextBox.Text == "" && proprietarioTextBox.Text == "" &&
+                   foneTextBox.Text == "" && banhoTextBox.Text == "" && observacaoTextBox.Text == "" && totalTextBox.Text == "") return;
+
+
                 MessageBoxResult messageBoxResult = MessageBox.Show("Você tem certeza?", "Confirmar Deleção", MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
@@ -137,6 +144,9 @@ namespace SGPET.View
         {
             try
             {
+                if (diadasemanaTextBox.Text == "" && animalTextBox.Text == "" && proprietarioTextBox.Text == "" &&
+                   foneTextBox.Text == "" && banhoTextBox.Text == "" && observacaoTextBox.Text == "" && totalTextBox.Text == "") return;
+
                 MessageBoxResult messageBoxResult = MessageBox.Show("Você tem certeza?", "Confirmar Atualização", MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
