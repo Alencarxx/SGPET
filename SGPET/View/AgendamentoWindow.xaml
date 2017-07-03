@@ -12,7 +12,7 @@
         xmlns:sgpet="clr-namespace:SGPET"
         xmlns:sysglb="clr-namespace:System.Globalization;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.Agendamento}" Height="720" Width="880" Loaded="Window_Loaded" Icon="\favicon.ico">
+        Title="{x:Static p:Resources.Agendamento}" Height="720" Width="880" Loaded="Window_Loaded" Icon="../favicon.ico">
 
     <Window.Resources>
         <CollectionViewSource x:Key="agendamentoViewSource" d:DesignSource="{d:DesignInstance {x:Type sgpet:Agendamento}, CreateList=True}"/>
@@ -87,7 +87,7 @@
             <TextBox x:Name="observacaoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="70" Margin="2.6,4.8,-292.8,46" Grid.Row="8" Text="{Binding Observacao, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="427" Grid.RowSpan="2"/>
 
             <Label Content="Total:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,55.2,0,6" Grid.Row="9" VerticalAlignment="Center"/>
-            <TextBox x:Name="totalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2.6,56.2,-106.4,8" Grid.Row="9" Text="{Binding Total, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, StringFormat='#.00', ConverterCulture={x:Static sysglb:CultureInfo.CurrentCulture}}" VerticalAlignment="Center" Width="239"/>
+            <TextBox x:Name="totalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2.6,56.2,-106.4,8" Grid.Row="9" Text="{Binding Total, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, StringFormat='#.00'}" VerticalAlignment="Center" Width="239"/>
 
         </Grid>
 
