@@ -7,7 +7,7 @@
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:p="clr-namespace:SGPET.Properties"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.Clientes}" Height="700" Width="880">
+        Title="{x:Static p:Resources.Clientes}" Height="700" Width="880" Icon="\favicon.ico">
     <Grid>
         <Label>Clientes</Label>
     </Grid>
