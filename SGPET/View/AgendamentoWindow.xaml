@@ -6,51 +6,32 @@
         xmlns:p="clr-namespace:SGPET.Properties"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxthm="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sgpet="clr-namespace:SGPET"
+        xmlns:sysglb="clr-namespace:System.Globalization;assembly=mscorlib"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.Agendamento}" Height="720" Width="880" Loaded="Window_Loaded">
+
     <Window.Resources>
         <CollectionViewSource x:Key="agendamentoViewSource" d:DesignSource="{d:DesignInstance {x:Type sgpet:Agendamento}, CreateList=True}"/>
         <sgpet:SGPETDADOSDataSet x:Key="sGPETDADOSDataSet"/>
         <CollectionViewSource x:Key="agendamentosViewSource" Source="{Binding Agendamentos, Source={StaticResource sGPETDADOSDataSet}}"/>
     </Window.Resources>
+
     <Grid DataContext="{StaticResource agendamentoViewSource}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label>Agendamentos</Label>
+
+        <Label>Agendamentos de reservas</Label>
+
         <DataGrid  AutoGenerateColumns="True" Height="241" HorizontalAlignment="Left" Margin="12,25,0,0" Name="macDataGrid" VerticalAlignment="Top" Width="852" SelectionChanged="macDataGrid_SelectionChanged"
                    Grid.Row="0" Grid.RowSpan="3" />
-        <!--<DataGrid Name="macDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True"  Margin="10,5.4,9.6,357.4" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="macDataGrid_SelectionChanged" Grid.Row="2">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="animalColumn" Binding="{Binding Animal}" Header="Animal" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="banhoColumn" Binding="{Binding Banho}" Header="Banho" Width="SizeToHeader"/>
-                <DataGridTemplateColumn x:Name="chegadaColumn" Header="Chegada" Width="SizeToHeader">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Chegada, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="diadasemanaColumn" Binding="{Binding Diadasemana}" Header="Diadasemana" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="foneColumn" Binding="{Binding Fone}" Header="Fone" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="observacaoColumn" Binding="{Binding Observacao}" Header="Observacao" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="proprietarioColumn" Binding="{Binding Proprietario}" Header="Proprietario" Width="SizeToHeader"/>
-                <DataGridTemplateColumn x:Name="saidaColumn" Header="Saida" Width="SizeToHeader">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Saida, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="totalColumn" Binding="{Binding Total}" Header="Total" Width="SizeToHeader"/>
-            </DataGrid.Columns>
-        </DataGrid>-->
+
         <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="-1,251.4,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.011,0.079" Width="528" Height="384" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -84,13 +65,10 @@
             <Label Content="Saída:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
             <DatePicker x:Name="saidaDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="4" SelectedDate="{Binding Saida, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
 
-
             <Label Content="Banho:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
             <TextBox x:Name="banhoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="2.6,4,-225.6,4" Grid.Row="5" Text="{Binding Banho, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="351"/>
 
-
             <Label Content="Dia da semana:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <!--<TextBox x:Name="diadasemanaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="2.6,4,-224.8,4" Grid.Row="6" Text="{Binding Diadasemana, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="351"/>-->
             <ComboBox x:Name="diadasemanaTextBox" SelectedValue="{Binding Diadasemana, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"   Grid.Column="1" HorizontalAlignment="Left" Margin="2.6,5,-221.6,0" Grid.Row="6" VerticalAlignment="Top" Width="351">
                 <ComboBoxItem>Segunda-Feira</ComboBoxItem>
                 <ComboBoxItem>Terça-Feira</ComboBoxItem>
@@ -101,17 +79,18 @@
                 <ComboBoxItem>Domingo</ComboBoxItem>
             </ComboBox>
 
-            <Label Content="Fone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
-            <TextBox x:Name="foneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="2.6,4,-224,4" Grid.Row="7" Text="{Binding Fone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, StringFormat={}{0:(###)###-####}}" VerticalAlignment="Center" Width="351"/>
+            <Label Content="Telefone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+            <xctk:MaskedTextBox x:Name="foneTextBox" Grid.Column="1"  Grid.Row="7" Height="24" Margin="2.6,3.6,-202.4,5.2" Mask="(00) 0000-0000" Text="{Binding Fone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="427"/>
+            <!--<TextBox x:Name="foneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="2.6,4,-224,4" Grid.Row="7" Text="{Binding Fone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, StringFormat={}{0:(###)###-####}}" VerticalAlignment="Center" Width="351"/>-->
 
             <Label Content="Observacao:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
             <TextBox x:Name="observacaoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="70" Margin="2.6,4.8,-292.8,46" Grid.Row="8" Text="{Binding Observacao, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="427" Grid.RowSpan="2"/>
 
             <Label Content="Total:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,55.2,0,6" Grid.Row="9" VerticalAlignment="Center"/>
-            <TextBox x:Name="totalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2.6,56.2,-106.4,8" Grid.Row="9" Text="{Binding Total, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, StringFormat=c}" VerticalAlignment="Center" Width="239"/>
-
+            <TextBox x:Name="totalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2.6,56.2,-106.4,8" Grid.Row="9" Text="{Binding Total, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, StringFormat='#.00', ConverterCulture={x:Static sysglb:CultureInfo.CurrentCulture}}" VerticalAlignment="Center" Width="239"/>
 
         </Grid>
+
         <Button Content="Inserir" Height="75" HorizontalAlignment="Left" Margin="692,250.4,0,0" Name="btnInserir" VerticalAlignment="Top" Width="144" Click="btnInserir_Click" Grid.Row="2" />
         <Button x:Name="btnAtualizar" Content="Atualizar" Click="btnAtualizar_Click" HorizontalAlignment="Left" Margin="692,330.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Height="75"/>
         <Button x:Name="btnDeletar" Content="Deletar" Click="btnDeletar_Click" HorizontalAlignment="Left" Margin="692,410.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Height="75"/>

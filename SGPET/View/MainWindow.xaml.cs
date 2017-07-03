@@ -39,7 +39,9 @@ namespace SGPET.View
 
         private void Clientes_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ClientesPage clientespage = new ClientesPage();
+            grid2.Children.Clear();
+            grid2.Children.Add(clientespage);
         }
 
         private void Contratos_OnClick(object sender, RoutedEventArgs e)

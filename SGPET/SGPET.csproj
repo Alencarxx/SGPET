@@ -292,6 +292,30 @@
       <HintPath>..\packages\WinSCP.5.9.6\lib\WinSCPnet.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -300,7 +324,6 @@
     </ApplicationDefinition>
     <Compile Include="Model\Agendamento.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Properties\Resources.pt-BR.Designer.cs" />
     <Compile Include="Properties\Resources.pt-BR1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -316,6 +339,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SGPETDADOSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SGPETDADOSDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SGPETDADOSDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AgendamentoViewModel.cs" />
     <Compile Include="ViewModel\BasicViewModel.cs" />
     <Compile Include="ViewModel\ClientesViewModel.cs" />
@@ -327,6 +355,9 @@
     </Compile>
     <Compile Include="View\AgendamentoWindow.xaml.cs">
       <DependentUpon>AgendamentoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClientesPage.xaml.cs">
+      <DependentUpon>ClientesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientesWindow.xaml.cs">
       <DependentUpon>ClientesWindow.xaml</DependentUpon>
@@ -370,6 +401,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AgendamentoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ClientesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -470,6 +505,17 @@
     </None>
     <None Include="SGPETDADOSDataSet.xss">
       <DependentUpon>SGPETDADOSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SGPETDADOSDataSet1.xsc">
+      <DependentUpon>SGPETDADOSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SGPETDADOSDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SGPETDADOSDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SGPETDADOSDataSet1.xss">
+      <DependentUpon>SGPETDADOSDataSet1.xsd</DependentUpon>
     </None>
     <None Include="SGPET_TemporaryKey.pfx" />
   </ItemGroup>

@@ -38,13 +38,13 @@
         <Menu HorizontalAlignment="Right" VerticalAlignment="Top" Width="155" Height="18"  Grid.Row="0" Margin="0,0,2,4"
               DataContext="{Binding Source={StaticResource Locator},  Path=ToolBar}">
 
-            <MenuItem x:Name="Opcao" Header="Opção Agendamentos" Command="{Binding AgendamentoCmd}" 
+            <MenuItem x:Name="Opcao" Header="Opção Reservas" Command="{Binding AgendamentoCmd}" 
                   Foreground="Black"
                   Background="GhostWhite"
                   Style="{DynamicResource SGPETMenuItemWithoutKeys}" ToolTip="Agendamentos" />
         </Menu>
 
-        <Label x:Name="Agendamento" Content="Agendamento" Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}" HorizontalAlignment="Left" Grid.Row="0" Margin="0,0,0,147.8" Grid.RowSpan="2" Width="417" />
+        <Label x:Name="Agendamento" Content="Reservas" Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}" HorizontalAlignment="Left" Grid.Row="0" Margin="0,0,0,147.8" Grid.RowSpan="2" Width="417" />
 
     </Grid>
 </UserControl>

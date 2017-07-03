@@ -28,7 +28,7 @@
                   Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
                   Style="{DynamicResource SGPETMenuItemWithoutKeys}" />
 
-            <MenuItem x:Name="Agendamentos" Header="Agendamentos" Click="Agendamentos_OnClick" 
+            <MenuItem x:Name="Agendamentos" Header="Reservas" Click="Agendamentos_OnClick" 
                   Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}"
                   Background="{Binding Background, Source={x:Static helper:ColorHelper.Instance}}"
                   Style="{DynamicResource SGPETMenuItemWithoutKeys}" />

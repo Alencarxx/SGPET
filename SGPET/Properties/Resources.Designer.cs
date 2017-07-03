@@ -61,7 +61,7 @@ namespace SGPET.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Agendamentos.
+        ///   Looks up a localized string similar to Reservas.
         /// </summary>
         public static string Agendamento {
             get {
