@@ -10,7 +10,7 @@
       <ComponentGroupRef Id="SGPETDeploy" />
 		</Feature>
 
-    <Icon Id="favicon.ico" SourceFile="$(var.MY.SGPET.ProjectDir)favicon.ico" />
+    <Icon Id="favicon.ico" SourceFile="$(var.SGPET.ProjectDir)favicon.ico" />
 
     <Property Id="ARPPRODUCTICON" Value="favicon.ico" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
