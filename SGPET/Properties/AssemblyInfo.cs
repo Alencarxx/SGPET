@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("SGPET")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("APORTO")]
 [assembly: AssemblyProduct("SGPET")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Product Id="*" Name="SGPETInstaller" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="754c1e79-e77e-49c0-b616-e89bf2919f8c">
+	<Product Id="*" Name="SGPETInstaller" Language="1033" Version="1.0.0.0" Manufacturer="SGPET" UpgradeCode="754c1e79-e77e-49c0-b616-e89bf2919f8c">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -35,13 +35,13 @@
 
 	<Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="ProgramFiles64Folder">
+      <Directory Id="ProgramFilesFolder">
         <Directory Id="SGPETDIR" Name="SGPET">
-          <Directory Id="INSTALLDIR" Name="SGPET">
-            <Directory Id="SERVICEDIR" Name="Service">
+          <Directory Id="INSTALLDIR" Name="SGPET" />
+            <!--<Directory Id="SERVICEDIR" Name="Service">
               <Directory Id="SERVICEUTILDIR" Name="Util"/>
             </Directory>
-          </Directory>
+          </Directory>-->
         </Directory>
       </Directory>
       <Directory Id="DesktopFolder" SourceName="Desktop" />
@@ -79,12 +79,12 @@
         <RemoveFolder Id='RemoveProgramMenuDir' Directory='ApplicationProgramsFolder' On='uninstall' />
       </Component>
      
-      <Component Id="NeoExpressWinConfig" >
+      <Component Id="SGPETConfig" >
         <File Name="$(var.SGPET.TargetFileName).config" />
       </Component>
-      <Component Id="WinSCP" >
+     <!--<Component Id="WinSCP" >
         <File Name="WinSCP.exe" />
-      </Component>
+      </Component>-->
     </ComponentGroup>
 	</Fragment>
 </Wix>
