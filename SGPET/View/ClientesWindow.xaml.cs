@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
 using DevExpress.Xpf.Core;
 using log4net;
 
@@ -27,12 +28,20 @@ namespace SGPET.View
         {
             _strConexao = ConfigurationManager.ConnectionStrings["ConexaoSQLServer"].ConnectionString;
             VincularDados();
-            //Mocks.SGPET_SGPETDADOSDataSet_34_162968216 sGPETDADOSDataSet = ((Mocks.SGPET_SGPETDADOSDataSet_34_162968216)(this.FindResource("sGPETDADOSDataSet")));
-            // TODO: Add code here to load data into the table Cliente.
-            // This code could not be generated, because the sGPETDADOSDataSetClienteTableAdapter.Fill method is missing, or has unrecognized parameters.
-            SGPET.SGPETDADOSDataSetTableAdapters.ClienteTableAdapter sGPETDADOSDataSetClienteTableAdapter = new SGPET.SGPETDADOSDataSetTableAdapters.ClienteTableAdapter();
-            System.Windows.Data.CollectionViewSource clienteViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("clienteViewSource")));
-            clienteViewSource.View.MoveCurrentToFirst();
+          
+        }
+
+        private void macDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (clienteDataGrid.SelectedCells.Count > 0)
+            {
+                codigoTextBox.Text = ((DataRowView)clienteDataGrid.SelectedItem).Row["Codigo"].ToString();
+                nomeTextBox.Text = ((DataRowView)clienteDataGrid.SelectedItem).Row["Nome"].ToString();
+                enderecoTextBox.Text = ((DataRowView)clienteDataGrid.SelectedItem).Row["Endereco"].ToString();
+                telefoneTextBox.Text = ((DataRowView)clienteDataGrid.SelectedItem).Row["Telefone"].ToString();
+                animalTextBox.Text = ((DataRowView)clienteDataGrid.SelectedItem).Row["Animal"].ToString();
+                desdeTextBox.Text = ((DataRowView)clienteDataGrid.SelectedItem).Row["Desde"].ToString();
+            }
         }
 
         private void VincularDados()
@@ -46,7 +55,7 @@ namespace SGPET.View
                 SqlDataAdapter da = new SqlDataAdapter(comm);
 
                 da.Fill(dt);
-                //clientesDataGrid.ItemsSource = dt.DefaultView;
+                clienteDataGrid.ItemsSource = dt.DefaultView;
             }
             catch (Exception ex)
             {
@@ -62,22 +71,15 @@ namespace SGPET.View
         {
             try
             {
-                //if () return; //var date1 = chegadaDatePicker?.SelectedDate.Value.Date;
-                //var date2 = saidaDatePicker?.SelectedDate.Value.Date;
-
                 _conn = new SqlConnection(_strConexao);
                 _conn.Open();
 
-               
+                string sql =
+                    "INSERT INTO Cliente (Nome, Endereco, Telefone, Animal, Desde) VALUES('" +
+                    nomeTextBox.Text + "','" + enderecoTextBox.Text + "','" + telefoneTextBox.Text + "','" +
+                    animalTextBox.Text + "', '" + desdeTextBox.Text + "' )";
 
-                //string sql =
-                //    "INSERT INTO Cliente (Nome, Endereco, Telefone, Animal, Desde) VALUES('" +
-                //    nomeTextBox.Text + "','" + enderecoTextBox.Text + "','" + telefoneTextBox.Text + "','" +
-                //    animalTextBox.Text + "', '" + desdeTextBox.Text + "' )";
-
-                SqlCommand comm = new SqlCommand("", _conn);
-                //comm.Parameters.AddWithValue("@value", date1);
-                //comm.Parameters.AddWithValue("@value2", date2);
+                SqlCommand comm = new SqlCommand(sql, _conn);
                 comm.ExecuteNonQuery();
 
             }
@@ -89,7 +91,96 @@ namespace SGPET.View
             {
                 _conn.Close();
                 VincularDados();
+                LimparTela();
             }
+        }
+
+        private void btnAtualizar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //if () return;
+
+                MessageBoxResult messageBoxResult = MessageBox.Show("Você tem certeza?", "Confirmar Atualização", MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    _conn = new SqlConnection(_strConexao);
+                    _conn.Open();
+              
+                    var stringsql = "UPDATE Cliente SET Nome='" + nomeTextBox.Text + "',Endereco='" +
+                                    enderecoTextBox.Text + "',Telefone='" + telefoneTextBox.Text + "',Animal='" +
+                                    animalTextBox.Text + "',Desde='" + desdeTextBox.Text + "' WHERE Codigo = " + codigoTextBox.Text;
+
+                    SqlCommand comm = new SqlCommand(stringsql, _conn);
+                    
+                    comm.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erro VincularDados: " + ex.Message);
+            }
+            finally
+            {
+                _conn.Close();
+                VincularDados();
+                LimparTela();
+            }
+        }
+
+        private void btnDeletar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //if () return;
+
+
+                MessageBoxResult messageBoxResult = MessageBox.Show("Você tem certeza?", "Confirmar Deleção", MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    _conn = new SqlConnection(_strConexao);
+                    _conn.Open();
+                    var id = codigoTextBox.Text;
+                    SqlCommand comm = new SqlCommand("DELETE FROM Cliente WHERE Codigo = " + id, _conn);
+                    comm.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Erro VincularDados: " + ex.Message);
+            }
+            finally
+            {
+                _conn.Close();
+                VincularDados();
+                LimparTela();
+            }
+        }
+
+        private void LimparTela()
+        {
+            codigoTextBox.Clear();
+            nomeTextBox.Text = "";
+            animalTextBox.Clear();
+            enderecoTextBox.Clear();
+            telefoneTextBox.Clear();
+            desdeTextBox.Clear();
+        }
+
+        private void btnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            codigoTextBox.Clear();
+            nomeTextBox.Text = "";
+            animalTextBox.Clear();
+            enderecoTextBox.Clear();
+            telefoneTextBox.Clear();
+            desdeTextBox.Clear();
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -50,6 +50,7 @@ namespace SGPET.View
             finally
             {
                 _conn.Close();
+                LimparTela();
             }
         }
 
@@ -183,6 +184,20 @@ namespace SGPET.View
                 _conn.Close();
                 VincularDados();
             }
+        }
+
+        private void LimparTela()
+        {
+            idTextBox.Clear();
+            diadasemanaTextBox.Text = "";
+            animalTextBox.Clear();
+            proprietarioTextBox.Clear();
+            foneTextBox.Clear();
+            banhoTextBox.Clear();
+            chegadaDatePicker.Text = "";
+            saidaDatePicker.Text = "";
+            observacaoTextBox.Clear();
+            totalTextBox.Clear();
         }
 
         private void btnLimpar_Click(object sender, RoutedEventArgs e)

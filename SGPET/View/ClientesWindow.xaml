@@ -17,11 +17,11 @@
     <Grid DataContext="{StaticResource clienteViewSource}">
 
         <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="689,263,0,0" VerticalAlignment="Top" Width="150" Height="75" Click="btnInserir_Click"/>
-        <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="689,340,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <Button x:Name="btnDeletar" Content="Deletar" HorizontalAlignment="Left" Margin="689,417,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="689,571,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="689,494,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <DataGrid x:Name="clienteDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,0,9.6,412.4" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="689,340,0,0" VerticalAlignment="Top" Width="150" Height="75" Click="btnAtualizar_Click"/>
+        <Button x:Name="btnDeletar" Content="Deletar" HorizontalAlignment="Left" Margin="689,417,0,0" VerticalAlignment="Top" Width="150" Height="75" Click="btnDeletar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="689,571,0,0" VerticalAlignment="Top" Width="150" Height="64" Click="btnCancelar_Click"/>
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="689,494,0,0" VerticalAlignment="Top" Width="150" Height="75" Click="btnLimpar_Click"/>
+        <DataGrid x:Name="clienteDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,0,9.6,412.4" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionChanged="macDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="codigoColumn" Binding="{Binding Codigo}" Header="Codigo" IsReadOnly="True" Width="100"/>
                 <DataGridTextColumn x:Name="nomeColumn" Binding="{Binding Nome}" Header="Nome" Width="250"/>
@@ -34,7 +34,8 @@
         <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" Width="610" Height="200">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="356.2"/>
+                <ColumnDefinition Width="150.2"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -44,18 +45,18 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Codigo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="codigoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Codigo, Mode=OneWay}" VerticalAlignment="Center" Width="500"/>
-            <Label Content="Nome:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
-            <Label Content="Endereco:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="enderecoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Endereco, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
-            <Label Content="Telefone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="telefoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Telefone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
-            <Label Content="Animal:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="animalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Animal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
-            <Label Content="Desde:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="desdeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Desde, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
+            <Label Content="Codigo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,3.8" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="codigoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,5,0,4.8" Grid.Row="0" Text="{Binding Codigo, Mode=OneWay}" VerticalAlignment="Center" Width="500" IsEnabled="False" Grid.ColumnSpan="2"/>
+            <Label Content="Nome:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.2,0,3.6" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,5.2,0,4.6" Grid.Row="1" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500" Grid.ColumnSpan="2"/>
+            <Label Content="Endereco:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.4,0,3.4" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="enderecoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4.4,0,4.4" Grid.Row="2" Text="{Binding Endereco, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500" Grid.ColumnSpan="2"/>
+            <Label Content="Telefone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.6,0,3.2" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="telefoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,4.6,0,5.2" Grid.Row="3" Text="{Binding Telefone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500" Grid.ColumnSpan="2"/>
+            <Label Content="Animal:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.8,0,4" Grid.Row="4" VerticalAlignment="Center"/>
+            <TextBox x:Name="animalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,4.8,0,5" Grid.Row="4" Text="{Binding Animal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500" Grid.ColumnSpan="2"/>
+            <Label Content="Desde:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,4,0,3.8" Grid.Row="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="desdeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,5,0,4.8" Grid.Row="5" Text="{Binding Desde, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </dx:DXWindow>
