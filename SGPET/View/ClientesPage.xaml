@@ -12,13 +12,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="880" Loaded="UserControl_Loaded">
     <UserControl.Resources>
-        <SGPET:SGPETDADOSDataSet1 x:Key="sGPETDADOSDataSet1"/>
-        <CollectionViewSource x:Key="clientesViewSource" Source="{Binding Clientes, Source={StaticResource sGPETDADOSDataSet1}}"/>
+        <!--<SGPET:SGPETDADOSDataSet1 x:Key="sGPETDADOSDataSet1"/>
+        <CollectionViewSource x:Key="clientesViewSource" Source="{Binding Clientes, Source={StaticResource sGPETDADOSDataSet1}}"/>-->
+        <SGPET:SGPETDADOSDataSet x:Key="sGPETDADOSDataSet"/>
+        <CollectionViewSource x:Key="clienteViewSource" Source="{Binding Cliente, Source={StaticResource sGPETDADOSDataSet}}"/>
     </UserControl.Resources>
 
 
 
-    <Grid DataContext="{StaticResource clientesViewSource}" Margin="2,0,-2,0">
+    <Grid DataContext="{StaticResource clienteViewSource}" Margin="2,0,-2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -36,7 +38,7 @@
 
         <Label x:Name="Clientes" Content="Clientes" Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}" HorizontalAlignment="Left" Grid.Row="0" Margin="0,0,0,147.8" Grid.RowSpan="2" Width="417" />
 
-        <dxg:GridControl x:Name="griddatacontrol" SelectionMode="Row" AutoGenerateColumns="KeepOld" ItemsSource="{Binding Data, Source={StaticResource clientesViewSource}}"
+        <dxg:GridControl x:Name="griddatacontrol" SelectionMode="Row" AutoGenerateColumns="KeepOld" ItemsSource="{Binding Data, Source={StaticResource clienteViewSource}}"
                          Margin="0,19,0,0" Grid.RowSpan="3">
             <dxg:GridControl.View>
                 <dxg:TableView ShowGroupPanel="False"/>

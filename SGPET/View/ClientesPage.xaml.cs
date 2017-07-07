@@ -80,7 +80,7 @@ namespace SGPET.View
 
                 conn = new SqlConnection(strConexao);
                 conn.Open();
-                SqlCommand comm = new SqlCommand("SELECT * FROM Clientes", conn);
+                SqlCommand comm = new SqlCommand("SELECT * FROM Cliente", conn);
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(comm);
 

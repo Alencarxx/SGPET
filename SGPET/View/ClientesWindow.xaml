@@ -11,22 +11,27 @@
         Title="{x:Static p:Resources.Clientes}" Height="700" Width="880" Icon="../favicon.ico" Loaded="Window_Loaded">
     <dx:DXWindow.Resources>
         <SGPET:SGPETDADOSDataSet x:Key="sGPETDADOSDataSet"/>
-        <CollectionViewSource x:Key="clientesViewSource" Source="{Binding Clientes, Source={StaticResource sGPETDADOSDataSet}}"/>
-        <SGPET:SGPETDADOSDataSet1 x:Key="sGPETDADOSDataSet1"/>
-        <CollectionViewSource x:Key="clientesViewSource1" Source="{Binding Clientes, Source={StaticResource sGPETDADOSDataSet1}}"/>
+        <CollectionViewSource x:Key="clienteViewSource" Source="{Binding Cliente, Source={StaticResource sGPETDADOSDataSet}}"/>
     </dx:DXWindow.Resources>
-    <Grid DataContext="{StaticResource clientesViewSource}">
-        <DataGrid x:Name="clientesDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource clientesViewSource1}}" Margin="10,0,9.6,416.4" RowDetailsVisibilityMode="VisibleWhenSelected">
+
+    <Grid DataContext="{StaticResource clienteViewSource}">
+
+        <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="689,263,0,0" VerticalAlignment="Top" Width="150" Height="75" Click="btnInserir_Click"/>
+        <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="689,340,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
+        <Button x:Name="btnDeletar" Content="Deletar" HorizontalAlignment="Left" Margin="689,417,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="689,571,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="689,494,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
+        <DataGrid x:Name="clienteDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,0,9.6,412.4" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="codigoColumn" Binding="{Binding Codigo}" Header="Codigo" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="nomeColumn" Binding="{Binding Nome}" Header="Nome" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="enderecoColumn" Binding="{Binding Endereco}" Header="Endereco" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="telefoneColumn" Binding="{Binding Telefone}" Header="Telefone" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="animalColumn" Binding="{Binding Animal}" Header="Animal" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="desdeColumn" Binding="{Binding Desde}" Header="Desde" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="codigoColumn" Binding="{Binding Codigo}" Header="Codigo" IsReadOnly="True" Width="100"/>
+                <DataGridTextColumn x:Name="nomeColumn" Binding="{Binding Nome}" Header="Nome" Width="250"/>
+                <DataGridTextColumn x:Name="enderecoColumn" Binding="{Binding Endereco}" Header="Endereco" Width="150"/>
+                <DataGridTextColumn x:Name="telefoneColumn" Binding="{Binding Telefone}" Header="Telefone" Width="100"/>
+                <DataGridTextColumn x:Name="animalColumn" Binding="{Binding Animal}" Header="Animal" Width="100"/>
+                <DataGridTextColumn x:Name="desdeColumn" Binding="{Binding Desde}" Header="Desde" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid x:Name="grid1" DataContext="{StaticResource clientesViewSource1}" HorizontalAlignment="Left" Margin="10,277,0,0" VerticalAlignment="Top" Width="422" Height="245">
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" Width="610" Height="200">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -40,22 +45,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Content="Codigo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="codigoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,5,-219.6,6.4" Grid.Row="0" Text="{Binding Codigo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="349"/>
+            <TextBox x:Name="codigoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Codigo, Mode=OneWay}" VerticalAlignment="Center" Width="500"/>
             <Label Content="Nome:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4.4,-224.4,4.4" Grid.Row="1" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="349"/>
+            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
             <Label Content="Endereco:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="enderecoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,4.8,-223.6,5" Grid.Row="2" Text="{Binding Endereco, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="349"/>
+            <TextBox x:Name="enderecoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Endereco, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
             <Label Content="Telefone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="telefoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,5.2,-222.8,4.6" Grid.Row="3" Text="{Binding Telefone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="349"/>
+            <TextBox x:Name="telefoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Telefone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
             <Label Content="Animal:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="animalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,4.6,-222,5.2" Grid.Row="4" Text="{Binding Animal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="349"/>
+            <TextBox x:Name="animalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Animal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
             <Label Content="Desde:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="desdeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.4,5,-221.2,4.8" Grid.Row="5" Text="{Binding Desde, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="349"/>
+            <TextBox x:Name="desdeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Desde, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="500"/>
         </Grid>
-        <Button x:Name="btnInserir" Content="Inserir" HorizontalAlignment="Left" Margin="689,263,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <Button x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="689,340,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <Button x:Name="btnDeletar" Content="Deletar" HorizontalAlignment="Left" Margin="689,417,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="689,571,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
-        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="689,494,0,0" VerticalAlignment="Top" Width="150" Height="75"/>
     </Grid>
 </dx:DXWindow>
