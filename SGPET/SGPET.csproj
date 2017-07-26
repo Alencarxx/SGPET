@@ -390,6 +390,9 @@
     <Compile Include="View\ToolBarView.xaml.cs">
       <DependentUpon>ToolBarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\VacinaPage.xaml.cs">
+      <DependentUpon>VacinaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\VacinaWindow.xaml.cs">
       <DependentUpon>VacinaWindow.xaml</DependentUpon>
     </Compile>
@@ -453,6 +456,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ToolBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VacinaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

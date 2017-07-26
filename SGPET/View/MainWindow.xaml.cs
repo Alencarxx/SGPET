@@ -58,7 +58,9 @@ namespace SGPET.View
 
         private void Vacinas_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            VacinaPage vacinapage = new VacinaPage();
+            grid2.Children.Clear();
+            grid2.Children.Add(vacinapage);
         }
 
         private void Produtos_OnClick(object sender, RoutedEventArgs e)
