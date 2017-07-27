@@ -373,6 +373,9 @@
     <Compile Include="View\ClientesWindow.xaml.cs">
       <DependentUpon>ClientesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ContratoPage.xaml.cs">
+      <DependentUpon>ContratoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ContratosWindow.xaml.cs">
       <DependentUpon>ContratosWindow.xaml</DependentUpon>
     </Compile>
@@ -435,6 +438,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ClientesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ContratoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

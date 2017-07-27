@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="SGPET.View.ContratoPage"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SGPET.View"
+             xmlns:sgpet="clr-namespace:SGPET"
+             xmlns:helper="clr-namespace:SGPET.View.Helper"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="880" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <sgpet:SGPETDADOSDataSet x:Key="sGPETDADOSDataSet"/>
+        <CollectionViewSource x:Key="contratoViewSource" Source="{Binding Vacinas, Source={StaticResource sGPETDADOSDataSet}}"/>
+    </UserControl.Resources>
+
+
+    <Grid DataContext="{StaticResource contratoViewSource}" Margin="2,0,-2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu HorizontalAlignment="Right" VerticalAlignment="Top" Width="155" Height="18"  Grid.Row="0" Margin="0,0,2,4"
+              DataContext="{Binding Source={StaticResource Locator},  Path=ToolBar}">
+
+            <MenuItem x:Name="Opcao" Header="Opção Contratos" Command="{Binding ContratoCmd}" 
+                  Foreground="Black"
+                  Background="GhostWhite"
+                  Style="{DynamicResource SGPETMenuItemWithoutKeys}" ToolTip="Contratos" />
+        </Menu>
+
+        <Label x:Name="Contratos" Content="Contratos" Foreground="{Binding Foreground, Source={x:Static helper:ColorHelper.Instance}}" HorizontalAlignment="Left" Grid.Row="0" Margin="0,0,0,147.8" Grid.RowSpan="2" Width="417" />
+
+        <dxg:GridControl x:Name="griddatacontrol" SelectionMode="Row" AutoGenerateColumns="KeepOld" ItemsSource="{Binding Data, Source={StaticResource contratoViewSource}}"
+                         Margin="0,19,0,0" Grid.RowSpan="3">
+            <dxg:GridControl.View>
+                <dxg:TableView ShowGroupPanel="False"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+
+    </Grid>
+</UserControl>

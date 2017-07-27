@@ -46,7 +46,9 @@ namespace SGPET.View
 
         private void Contratos_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ContratoPage contratopage = new ContratoPage();
+            grid2.Children.Clear();
+            grid2.Children.Add(contratopage);
         }
 
         private void Agendamentos_OnClick(object sender, RoutedEventArgs e)
