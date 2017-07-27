@@ -65,22 +65,30 @@ namespace SGPET.View
 
         private void Produtos_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ProdutosPage produtopage = new ProdutosPage();
+            grid2.Children.Clear();
+            grid2.Children.Add(produtopage);
         }
 
         private void Vendas_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            VendasPage vendaspage = new VendasPage();
+            grid2.Children.Clear();
+            grid2.Children.Add(vendaspage);
         }
 
         private void Financeiro_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            FinanceiroPage financeiropage = new FinanceiroPage();
+            grid2.Children.Clear();
+            grid2.Children.Add(financeiropage);
         }
 
         private void Sobre_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            SobrePage sobrepage = new SobrePage();
+            grid2.Children.Clear();
+            grid2.Children.Add(sobrepage);
         }
     }
 }

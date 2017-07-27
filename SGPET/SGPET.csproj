@@ -341,16 +341,19 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SGPETDADOS.dbml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SGPETDADOSDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SGPETDADOSDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SGPETDADOSDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SGPETDADOSDataSet1.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ViewModel\AgendamentoViewModel.cs" />
     <Compile Include="ViewModel\BasicViewModel.cs" />
@@ -373,6 +376,9 @@
     <Compile Include="View\ContratosWindow.xaml.cs">
       <DependentUpon>ContratosWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FinanceiroPage.xaml.cs">
+      <DependentUpon>FinanceiroPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FinanceiroWindow.xaml.cs">
       <DependentUpon>FinanceiroWindow.xaml</DependentUpon>
     </Compile>
@@ -381,8 +387,14 @@
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ProdutosPage.xaml.cs">
+      <DependentUpon>ProdutosPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProdutoWindow.xaml.cs">
       <DependentUpon>ProdutoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SobrePage.xaml.cs">
+      <DependentUpon>SobrePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SobreWindow.xaml.cs">
       <DependentUpon>SobreWindow.xaml</DependentUpon>
@@ -395,6 +407,9 @@
     </Compile>
     <Compile Include="View\VacinaWindow.xaml.cs">
       <DependentUpon>VacinaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VendasPage.xaml.cs">
+      <DependentUpon>VendasPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\VendaWindow.xaml.cs">
       <DependentUpon>VendaWindow.xaml</DependentUpon>
@@ -427,6 +442,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\FinanceiroPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FinanceiroWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -447,7 +466,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ProdutosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ProdutoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SobrePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -464,6 +491,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\VacinaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VendasPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -498,6 +529,7 @@
     <None Include="Properties\DataSources\Agendamento.datasource" />
     <None Include="SGPETDADOS.dbml.layout">
       <DependentUpon>SGPETDADOS.dbml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -509,30 +541,39 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>SGPETDADOS.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="SGPETDADOSDataSet.xsc">
       <DependentUpon>SGPETDADOSDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="SGPETDADOSDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SGPETDADOSDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="SGPETDADOSDataSet.xss">
       <DependentUpon>SGPETDADOSDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="SGPETDADOSDataSet1.xsc">
       <DependentUpon>SGPETDADOSDataSet1.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="SGPETDADOSDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>SGPETDADOSDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="SGPETDADOSDataSet1.xss">
       <DependentUpon>SGPETDADOSDataSet1.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="SGPET_TemporaryKey.pfx" />
+    <None Include="SGPET_TemporaryKey.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
