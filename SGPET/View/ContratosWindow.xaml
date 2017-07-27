@@ -1,12 +1,85 @@
-﻿<Window x:Class="SGPET.View.ContratosWindow"
+﻿<dx:DXWindow
+        x:Class="SGPET.View.ContratosWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:p="clr-namespace:SGPET.Properties"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxthm="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SGPET.View"
+        xmlns:sgpet="clr-namespace:SGPET"
+        xmlns:sysglb="clr-namespace:System.Globalization;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="ContratosWindow" Height="700" Width="880">
-    <Grid>
-        <Label Foreground="Black">Contratos</Label>
+        Title="{x:Static p:Resources.Vacinas}" Height="720" Width="880" Loaded="Window_Loaded" Icon="../favicon.ico">
+
+    <Window.Resources>
+        <CollectionViewSource x:Key="agendamentoViewSource" d:DesignSource="{d:DesignInstance {x:Type sgpet:Agendamento}, CreateList=True}"/>
+        <sgpet:SGPETDADOSDataSet x:Key="sGPETDADOSDataSet"/>
+        <CollectionViewSource x:Key="contratoViewSource" Source="{Binding Vacinas, Source={StaticResource sGPETDADOSDataSet}}"/>
+        <CollectionViewSource x:Key="contratosViewSource" Source="{Binding Contratos, Source={StaticResource sGPETDADOSDataSet}}"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource contratoViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label>Vacinas</Label>
+
+        <Button Content="Inserir" Height="75" HorizontalAlignment="Left" Margin="692,250.4,0,0" Name="btnInserir" VerticalAlignment="Top" Width="144" Click="btnInserir_Click" Grid.Row="2" />
+        <Button x:Name="btnAtualizar" Content="Atualizar" Click="btnAtualizar_Click" HorizontalAlignment="Left" Margin="692,330.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Height="75"/>
+        <Button x:Name="btnDeletar" Content="Deletar" Click="btnDeletar_Click" HorizontalAlignment="Left" Margin="692,410.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Height="75"/>
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="692,490.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Height="75" Click="btnLimpar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="692,570.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="144" Height="54" Click="btnCancelar_Click"/>
+
+        <DataGrid x:Name="contratoDataGrid" AutoGenerateColumns="False" SelectionChanged="contratoDataGrid_SelectionChanged" Margin="0,0.4,-0.4,419.4" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="codigoColumn" Binding="{Binding Codigo}" Header="Codigo" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="nomeColumn" Binding="{Binding Nome}" Header="Nome" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="cPFColumn" Binding="{Binding CPF}" Header="CPF" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="rGColumn" Binding="{Binding RG}" Header="RG" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="enderecoColumn" Binding="{Binding Endereco}" Header="Endereco" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="telefoneColumn" Binding="{Binding Telefone}" Header="Telefone" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="animalColumn" Binding="{Binding Animal}" Header="Animal" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid x:Name="grid1" DataContext="{StaticResource contratosViewSource}" HorizontalAlignment="Left" Margin="0,258.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="640">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Codigo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="codigoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-433.2,4" Grid.Row="0" Text="{Binding Codigo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+            <Label Content="Nome:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="nomeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-432.4,4" Grid.Row="1" Text="{Binding Nome, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+            <Label Content="CPF:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="cPFTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-431.6,4" Grid.Row="2" Text="{Binding CPF, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+            <Label Content="RG:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="rGTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-430.8,4" Grid.Row="3" Text="{Binding RG, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+            <Label Content="Endereco:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+            <TextBox x:Name="enderecoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-430,4" Grid.Row="4" Text="{Binding Endereco, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+            <Label Content="Telefone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="telefoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-429.2,4" Grid.Row="5" Text="{Binding Telefone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+            <Label Content="Email:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+            <TextBox x:Name="emailTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-428.4,4" Grid.Row="6" Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+            <Label Content="Animal:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+            <TextBox x:Name="animalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.4,4,-427.6,4" Grid.Row="7" Text="{Binding Animal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="557"/>
+        </Grid>
+
     </Grid>
-</Window>
+</dx:DXWindow>
